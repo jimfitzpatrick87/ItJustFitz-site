@@ -30,10 +30,13 @@
 !/assets/puzzle.js
 !/assets/ItJustFitzIconV3_No_Text-round.webp
 
-# Repo furniture that lives only here.
+# Repo furniture that lives only here (not synced from the source repo).
+# CNAME is what points GitHub Pages at itjustfitz.com - if it is ever dropped
+# from this repo the custom domain breaks, so it must stay un-ignored.
 !/.gitignore
 !/README.md
 !/LICENSE
+!/CNAME
 
 # Never, under any circumstances.
 .env
