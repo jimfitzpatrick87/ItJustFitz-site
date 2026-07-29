@@ -31,12 +31,15 @@
 !/assets/ItJustFitzIconV3_No_Text-round.webp
 
 # Repo furniture that lives only here (not synced from the source repo).
-# CNAME is what points GitHub Pages at itjustfitz.com - if it is ever dropped
-# from this repo the custom domain breaks, so it must stay un-ignored.
+# Cloudflare Pages needs no in-repo domain file - the custom domain is bound in
+# the Pages project and served from Cloudflare DNS. CNAME was the GitHub Pages
+# mechanism and is deliberately gone; _headers and _redirects are Cloudflare's
+# equivalents and are pre-allowed here so they can be added without a second edit.
 !/.gitignore
 !/README.md
 !/LICENSE
-!/CNAME
+!/_headers
+!/_redirects
 
 # Never, under any circumstances.
 .env
