@@ -1,0 +1,43 @@
+# =============================================================================
+# PUBLIC REPO - DENY BY DEFAULT.
+#
+# This repo is a build output. Its only source of truth is the private
+# ItJustFitzAI repo, synced via `python scripts/publish-site.py --apply`.
+#
+# Everything is ignored except the explicit allowlist at the bottom. If you add
+# a file to the site, add it to BOTH this allowlist and DEPLOY_FILES in
+# publish-site.py - otherwise it will not deploy.
+#
+# The point of deny-by-default: a stray copy of a business plan, a session log,
+# or a docs/ folder cannot be committed here by accident. It has to be
+# un-ignored deliberately.
+# =============================================================================
+
+# Ignore everything...
+/*
+
+# ...then re-allow exactly the deployable site.
+!/index.html
+!/itjustfitz-puzzle.html
+!/dashboard.html
+!/portal.html
+!/robots.txt
+!/sitemap.xml
+
+!/assets/
+/assets/*
+!/assets/app-config.js
+!/assets/puzzle.js
+!/assets/ItJustFitzIconV3_No_Text-round.png
+
+# Repo furniture that lives only here.
+!/.gitignore
+!/README.md
+!/LICENSE
+
+# Never, under any circumstances.
+.env
+*.env
+.env.*
+*.docx
+*.doc

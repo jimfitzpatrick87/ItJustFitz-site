@@ -1,0 +1,26 @@
+# =============================================================================
+# PRE-LAUNCH STATE - THE WHOLE SITE IS BLOCKED FROM SEARCH ENGINES ON PURPOSE.
+#
+# Why: the site can deploy to Cloudflare Pages before it is ready to be found.
+# As of 2026-07-28 the inquiry form still ships a placeholder Supabase anon key
+# (assets/app-config.js), so submissions fall back to mailto: silently, and the
+# <head> has no meta description, canonical, or Open Graph tags. Getting indexed
+# in that state spends first-impression credit that is expensive to win back.
+#
+# TO GO LIVE (see docs/domain-hosting-runbook.md, Step 6):
+#   1. Real anon key in place and an inquiry proven to land in the DB
+#   2. SEO head block + sitemap.xml written against the real domain
+#   3. THEN replace the two lines below with:
+#          Allow: /
+#          Sitemap: https://YOURDOMAIN/sitemap.xml
+#      and keep the dashboard/portal disallow rules underneath.
+# =============================================================================
+
+User-agent: *
+Disallow: /
+
+# Admin and client surfaces stay blocked permanently, even after launch.
+# They are behind Supabase auth and an access code, but should never be indexed.
+Disallow: /dashboard.html
+Disallow: /portal.html
+Disallow: /assets/archive/

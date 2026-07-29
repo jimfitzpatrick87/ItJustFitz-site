@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Client Portal — It Just Fitz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1A2744; --navy-deep: #0F1A30; --navy-mid: #243358;
+    --cyan: #00E5FF; --blue: #00B4D8; --white: #F8FAFF; --muted: #8A96B3;
+    --card-bg: rgba(26, 39, 68, 0.6); --border: rgba(0, 180, 216, 0.15);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    --ok: #3ddc97; --warn: #ffb454;
+  }
+  body { font-family: var(--font-body); background: var(--navy-deep); color: var(--white); line-height: 1.65; min-height: 100vh; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  a { color: var(--cyan); }
+
+  header { padding: 18px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: var(--font-display); font-weight: 800; font-size: 18px; }
+  .logo .ai { color: var(--cyan); }
+  header a { font-family: var(--font-display); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .gate { max-width: 400px; margin: 60px auto; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
+  .gate h1 { font-size: 22px; margin-bottom: 6px; }
+  .gate p { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+  label { display: block; font-family: var(--font-display); font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+  input[type=text] { width: 100%; font-family: var(--font-display); font-size: 15px; letter-spacing: 2px; color: var(--white); background: rgba(15,26,48,0.6); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; text-transform: uppercase; }
+  input[type=file] { width: 100%; font-size: 13px; color: var(--white); background: rgba(15,26,48,0.6); border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; }
+  input:focus { outline: none; border-color: rgba(0,229,255,0.55); box-shadow: 0 0 0 3px rgba(0,229,255,0.12); }
+  .btn { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 0.03em; background: var(--cyan); color: var(--navy-deep); border: none; border-radius: 8px; padding: 13px 22px; cursor: pointer; width: 100%; margin-top: 16px; transition: background 0.2s; }
+  .btn:hover:not(:disabled) { background: #33EDFF; }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .btn-inline { width: auto; padding: 10px 20px; }
+  .msg { font-size: 13px; margin-top: 14px; min-height: 18px; }
+  .msg.err { color: #ff8a9b; }
+  .msg.ok { color: var(--ok); }
+
+  .eyebrow { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); }
+  h1.title { font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin: 8px 0 6px; line-height: 1.1; }
+  .sub { color: var(--muted); font-size: 14px; }
+
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-top: 22px; }
+  .card h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 16px; }
+
+  .progress-num { font-family: var(--font-display); font-size: 44px; font-weight: 800; color: var(--cyan); line-height: 1; }
+  .progress { height: 10px; background: rgba(15,26,48,0.8); border-radius: 5px; overflow: hidden; margin: 14px 0 6px; }
+  .progress > div { height: 100%; background: linear-gradient(90deg, var(--cyan), var(--blue)); transition: width 0.6s ease; }
+
+  .phases { display: flex; gap: 8px; margin-top: 18px; }
+  .phase { flex: 1; text-align: center; padding: 10px 4px; border-radius: 8px; border: 1px solid var(--border); font-family: var(--font-display); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .phase.done { color: var(--ok); border-color: rgba(61,220,151,0.35); background: rgba(61,220,151,0.08); }
+  .phase.current { color: var(--cyan); border-color: rgba(0,229,255,0.5); background: rgba(0,229,255,0.1); }
+
+  .summary { font-size: 15px; color: rgba(248,250,255,0.82); }
+  .summary-date { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+  .milestone { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .milestone:last-child { border-bottom: none; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--muted); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+  .dot.done { border-color: var(--ok); background: var(--ok); color: var(--navy-deep); }
+  .dot.in_progress { border-color: var(--cyan); }
+  .dot.blocked { border-color: var(--warn); }
+  .m-date { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+  .update { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .update:last-child { border-bottom: none; }
+  .update .body { font-size: 14px; color: rgba(248,250,255,0.82); }
+  .update .meta { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  .doc-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .doc-row:last-child { border-bottom: none; }
+  .doc-size { color: var(--muted); font-size: 12px; }
+  .doc-dl { font-family: var(--font-display); font-size: 11px; font-weight: 700; background: rgba(0,180,216,0.12); color: var(--cyan); border: 1px solid rgba(0,180,216,0.3); border-radius: 6px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+  .doc-dl:hover:not(:disabled) { background: rgba(0,180,216,0.22); }
+  .doc-dl:disabled { opacity: 0.5; }
+  .upload-area { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .muted-note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+  .pill { display: inline-block; font-family: var(--font-display); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 100px; background: rgba(0,229,255,0.14); color: var(--cyan); }
+  .empty { color: var(--muted); font-size: 14px; }
+  footer { text-align: center; padding: 30px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">It Just <span>Fitz</span><span class="ai">AI</span></div>
+  <a href="itjustfitz-puzzle.html">&larr; Main site</a>
+</header>
+
+<!-- CODE GATE -->
+<div id="gateView">
+  <div class="gate">
+    <h1>Client Portal</h1>
+    <p>Enter the access code from your project email to see your project's progress.</p>
+    <form id="gateForm">
+      <label for="code">Access code</label>
+      <input type="text" id="code" autocomplete="off" spellcheck="false" required>
+      <button type="submit" class="btn" id="gateBtn">View my project</button>
+      <p class="msg" id="gateMsg"></p>
+    </form>
+  </div>
+</div>
+
+<!-- PROJECT VIEW -->
+<main id="projectView" hidden></main>
+
+<!-- TODO: restore "LLC" in the footer below only once the Certificate of
+     Organization is filed with the PA Department of State. Publishing "LLC"
+     before formation misrepresents entity status. Do not restore speculatively. -->
+<footer>It Just Fitz · Ambler, PA · Questions? <a href="mailto:itjustfitzai@gmail.com">itjustfitzai@gmail.com</a></footer>
+
+<script src="assets/app-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const cfg = window.IJF_CONFIG || {};
+const sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+
+const PHASES = [
+  { key: "discovery", label: "Discovery" },
+  { key: "in_progress", label: "Build" },
+  { key: "review", label: "Review" },
+  { key: "delivered", label: "Delivered" },
+];
+// ai_websites is retired but permanent in the enum (Postgres has no DROP VALUE).
+// The key stays so a legacy project still renders a readable name to its client.
+const SERVICE_LABEL = { web_presence: "Web Presence & Lead Capture", ai_agents: "AI Agents & Automation", bi_analysis: "Business Intelligence & Analysis", ai_websites: "Web Presence & Lead Capture", unspecified: "Custom Project" };
+const EXT_MIME = {
+  pdf: "application/pdf", doc: "application/msword",
+  docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  xls: "application/vnd.ms-excel",
+  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  ppt: "application/vnd.ms-powerpoint",
+  pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", gif: "image/gif", webp: "image/webp",
+  txt: "text/plain", csv: "text/csv", zip: "application/zip",
+};
+const ALLOWED_MIME = new Set(Object.values(EXT_MIME).concat("application/x-zip-compressed"));
+const MAX_BYTES = 26214400; // 25 MB
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtDate = (d) => d ? new Date(d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "—";
+const fmtSize = (b) => !b ? "" : b < 1024 ? b + " B" : b < 1048576 ? (b / 1024).toFixed(0) + " KB" : (b / 1048576).toFixed(1) + " MB";
+
+let currentCode = "";
+
+async function portalFn(name, body) {
+  const res = await fetch(`${cfg.FUNCTIONS_BASE_URL}/${name}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...(cfg.SUPABASE_ANON_KEY ? { "apikey": cfg.SUPABASE_ANON_KEY, "Authorization": "Bearer " + cfg.SUPABASE_ANON_KEY } : {}),
+    },
+    body: JSON.stringify(body),
+  });
+  const out = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(out.error || `Request failed (${res.status})`);
+  return out;
+}
+
+function render(data) {
+  const p = data.project;
+  const phaseIdx = PHASES.findIndex((x) => x.key === p.phase);
+  const phasesHtml = PHASES.map((ph, idx) => {
+    const cls = idx < phaseIdx ? "done" : idx === phaseIdx ? "current" : "";
+    return `<div class="phase ${cls}">${esc(ph.label)}</div>`;
+  }).join("");
+
+  const milestones = (data.milestones || []).map((m) => `
+    <div class="milestone">
+      <span class="dot ${esc(m.status)}">${m.status === "done" ? "&#10003;" : ""}</span>
+      <span>${esc(m.title)}</span>
+      <span class="m-date">${m.completed_at ? "Done " + fmtDate(m.completed_at) : m.due_date ? "Due " + fmtDate(m.due_date) : ""}</span>
+    </div>`).join("") || '<div class="empty">Milestones will appear here as the project takes shape.</div>';
+
+  const updates = (data.updates || []).map((u) => `
+    <div class="update">
+      <div class="body">${esc(u.body)}</div>
+      <div class="meta">${fmtDate(u.created_at)}${u.is_ai_summary ? " · summary" : ""}</div>
+    </div>`).join("") || '<div class="empty">No updates posted yet.</div>';
+
+  const filesHtml = (data.files || []).length
+    ? data.files.map((f) => `
+      <div class="doc-row">
+        <span>${esc(f.file_name)} <span class="doc-size">${fmtSize(f.size_bytes)}${f.uploaded_by === "owner" ? " · shared by Jim" : ""}</span></span>
+        <button class="doc-dl" data-file="${f.id}">Download</button>
+      </div>`).join("")
+    : '<div class="empty">No documents yet.</div>';
+
+  const uploadHtml = p.accepting_uploads ? `
+    <div class="upload-area">
+      <label for="fileInput">Add a document</label>
+      <input type="file" id="fileInput">
+      <button class="btn btn-inline" id="uploadBtn" style="margin-top:12px">Upload</button>
+      <p class="msg" id="uploadMsg"></p>
+      <p class="muted-note">PDF, Office documents, images, CSV, text, or ZIP — up to 25 MB.</p>
+    </div>`
+    : '<p class="muted-note" style="margin-top:14px">Document uploads will open here after your discovery call.</p>';
+
+  $("projectView").innerHTML = `
+    <div class="eyebrow">Project Portal</div>
+    <h1 class="title">${esc(p.title)}</h1>
+    <div class="sub">${esc(SERVICE_LABEL[p.service_type] || "Custom Project")} · <span class="pill">${esc(p.status.replace(/_/g, " "))}</span></div>
+
+    <div class="card">
+      <h2>Progress</h2>
+      <div class="progress-num">${p.progress_pct}%</div>
+      <div class="progress"><div style="width:${p.progress_pct}%"></div></div>
+      <div class="phases">${phasesHtml}</div>
+      <div class="summary-date" style="margin-top:14px">
+        Started ${fmtDate(p.start_date)} · ${p.delivered_at ? "Delivered " + fmtDate(p.delivered_at) : "Target " + fmtDate(p.target_date)}
+      </div>
+    </div>
+
+    ${p.summary_for_client ? `
+    <div class="card">
+      <h2>Latest summary</h2>
+      <div class="summary">${esc(p.summary_for_client)}</div>
+      ${p.summary_generated_at ? `<div class="summary-date">Updated ${fmtDate(p.summary_generated_at)}</div>` : ""}
+    </div>` : ""}
+
+    <div class="card"><h2>Milestones</h2>${milestones}</div>
+    <div class="card"><h2>Activity</h2>${updates}</div>
+    <div class="card"><h2>Documents</h2>${filesHtml}${uploadHtml}</div>
+  `;
+
+  document.querySelectorAll("[data-file]").forEach((b) =>
+    b.addEventListener("click", () => downloadFile(b.dataset.file, b)));
+  const ub = $("uploadBtn");
+  if (ub) ub.addEventListener("click", doUpload);
+
+  $("gateView").hidden = true;
+  $("projectView").hidden = false;
+}
+
+async function downloadFile(fileId, btn) {
+  btn.disabled = true;
+  try {
+    const out = await portalFn("get-file-url", { access_code: currentCode, file_id: fileId });
+    window.open(out.url, "_blank");
+  } catch (e) {
+    alert(String(e.message || e));
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function doUpload() {
+  const input = $("fileInput");
+  const msg = $("uploadMsg");
+  const btn = $("uploadBtn");
+  const file = input.files && input.files[0];
+  if (!file) { msg.textContent = "Choose a file first."; msg.className = "msg err"; return; }
+
+  const ext = (file.name.split(".").pop() || "").toLowerCase();
+  const ctype = file.type || EXT_MIME[ext] || "";
+  if (!ALLOWED_MIME.has(ctype)) { msg.textContent = "That file type isn't allowed."; msg.className = "msg err"; return; }
+  if (file.size > MAX_BYTES) { msg.textContent = "That file is over the 25 MB limit."; msg.className = "msg err"; return; }
+
+  btn.disabled = true;
+  msg.textContent = "Uploading…";
+  msg.className = "msg";
+  try {
+    const u = await portalFn("client-upload-url", { access_code: currentCode, file_name: file.name, content_type: ctype, size: file.size });
+    const { error } = await sb.storage.from("project-files").uploadToSignedUrl(u.path, u.token, file, { contentType: ctype });
+    if (error) throw new Error(error.message || "Upload failed.");
+    await portalFn("client-upload-complete", { access_code: currentCode, path: u.path, file_name: file.name, content_type: ctype, size: file.size });
+    msg.textContent = "Uploaded. Thank you!";
+    msg.className = "msg ok";
+    await attempt(currentCode, true);
+  } catch (e) {
+    msg.textContent = String(e.message || e);
+    msg.className = "msg err";
+    btn.disabled = false;
+  }
+}
+
+async function attempt(code, fromUrl) {
+  try {
+    const data = await portalFn("client-portal", { access_code: code });
+    currentCode = code;
+    render(data);
+    history.replaceState(null, "", "portal.html?c=" + encodeURIComponent(code));
+  } catch (e) {
+    if (fromUrl) $("code").value = code;
+    $("gateMsg").textContent = String(e.message || e);
+    $("gateMsg").className = "msg err";
+  }
+}
+
+$("gateForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const code = $("code").value.trim();
+  if (!code) return;
+  $("gateBtn").disabled = true;
+  $("gateMsg").textContent = "Loading…";
+  $("gateMsg").className = "msg";
+  await attempt(code, false);
+  $("gateBtn").disabled = false;
+});
+
+(async () => {
+  if (!cfg.FUNCTIONS_BASE_URL || cfg.FUNCTIONS_BASE_URL.includes("YOUR-")) {
+    $("gateMsg").textContent = "Portal is not configured yet (assets/app-config.js).";
+    $("gateMsg").className = "msg err";
+    return;
+  }
+  const urlCode = new URLSearchParams(location.search).get("c");
+  if (urlCode) await attempt(urlCode.trim(), true);
+})();
+</script>
+</body>
+</html>
