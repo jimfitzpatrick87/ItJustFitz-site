@@ -28,7 +28,7 @@
 /assets/*
 !/assets/app-config.js
 !/assets/puzzle.js
-!/assets/ItJustFitzIconV3_No_Text-round.png
+!/assets/ItJustFitzIconV3_No_Text-round.webp
 
 # Repo furniture that lives only here.
 !/.gitignore
