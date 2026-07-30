@@ -2,17 +2,20 @@
 # PRE-LAUNCH STATE - THE WHOLE SITE IS BLOCKED FROM SEARCH ENGINES ON PURPOSE.
 #
 # Why: the site can deploy to Cloudflare Pages before it is ready to be found.
-# As of 2026-07-28 the inquiry form still ships a placeholder Supabase anon key
-# (assets/app-config.js), so submissions fall back to mailto: silently, and the
-# <head> has no meta description, canonical, or Open Graph tags. Getting indexed
-# in that state spends first-impression credit that is expensive to win back.
+# While the anon key is a placeholder the inquiry form is decorative - it shows
+# "not configured yet, email directly" instead of capturing the lead. Getting
+# indexed in that state spends first-impression credit that is expensive to
+# win back.
 #
 # TO GO LIVE (see docs/domain-hosting-runbook.md, Step 6):
-#   1. Real anon key in place and an inquiry proven to land in the DB
-#   2. SEO head block + sitemap.xml written against the real domain
-#   3. THEN replace the two lines below with:
+#   1. [ ] Real Supabase anon key in assets/app-config.js, AND an inquiry proven
+#          to land in the DB from a browser. Still a placeholder as of
+#          2026-07-30 - this is the ONLY remaining blocker.
+#   2. [x] SEO head block + sitemap.xml, written against https://itjustfitz.com/
+#          (done 2026-07-30; the landing page is now index.html, served at /)
+#   3. THEN replace the Disallow line below with:
 #          Allow: /
-#          Sitemap: https://YOURDOMAIN/sitemap.xml
+#          Sitemap: https://itjustfitz.com/sitemap.xml
 #      and keep the dashboard/portal disallow rules underneath.
 # =============================================================================
 

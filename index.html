@@ -1,2 +1,3047 @@
 <!DOCTYPE html>
-<meta http-equiv="refresh" content="0; url=itjustfitz-puzzle.html">
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>It Just Fitz: Websites and Digital Strategy for Local Business</title>
+
+<!-- DISCOVERABILITY
+     Every URL below is https://itjustfitz.com/ because this file IS the landing
+     page (renamed from itjustfitz-puzzle.html on 2026-07-30). Do not reintroduce
+     a filename into these URLs.
+
+     NOTE: robots.txt still carries Disallow: / on purpose. The go-live gate in
+     docs/domain-hosting-runbook.md Step 6 requires a real Supabase anon key and a
+     form submission proven to reach the database BEFORE the site becomes
+     indexable. This markup is ready; the gate is not open yet. -->
+<meta name="description" content="Websites for local businesses in Greater Philadelphia. Fixed-price builds from $1,800, care plans, and the tools that turn visitors into booked jobs.">
+<link rel="canonical" href="https://itjustfitz.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://itjustfitz.com/">
+<meta property="og:title" content="It Just Fitz: Websites and Digital Strategy for Local Business">
+<meta property="og:description" content="Fast, findable websites for local businesses in Greater Philadelphia -- and help picking the tools that turn visitors into booked jobs.">
+<meta property="og:image" content="https://itjustfitz.com/assets/ItJustFitzIconV3_No_Text-round.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="assets/ItJustFitzIconV3_No_Text-round.webp" type="image/webp">
+<link rel="apple-touch-icon" href="assets/ItJustFitzIconV3_No_Text-round.webp">
+
+<!-- LocalBusiness: only fields with real values. No streetAddress and no
+     telephone - the practice has neither a storefront nor a published business
+     line, and structured data asserting one that does not exist is worse than
+     omitting the field (domain-hosting-runbook.md Step 6.3). Do not add "LLC"
+     to legalName until the Certificate of Organization is filed. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "It Just Fitz",
+  "url": "https://itjustfitz.com/",
+  "image": "https://itjustfitz.com/assets/ItJustFitzIconV3_No_Text-round.webp",
+  "email": "itjustfitzai@gmail.com",
+  "description": "Websites, care plans, and digital strategy for local businesses in the Greater Philadelphia area.",
+  "founder": { "@type": "Person", "name": "Jim Fitzpatrick" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Ambler", "addressRegion": "PA", "addressCountry": "US" },
+  "areaServed": [
+    { "@type": "Place", "name": "Greater Philadelphia" },
+    { "@type": "Place", "name": "Pocono Mountains" }
+  ],
+  "knowsAbout": ["Web design", "Local SEO", "Google Business Profile optimization", "Lead capture", "Website maintenance"],
+  "sameAs": ["https://www.linkedin.com/in/jim-fitzpatrick-analytics"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Work+Sans:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Work+Sans:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></noscript>
+<script src="assets/app-config.js"></script>
+<script src="assets/puzzle.js" defer></script>
+
+<!-- ANALYTICS - commented out until a real site code exists.
+     GoatCounter is privacy-friendly (no cookies, no personal data), so at this
+     scale it needs no consent banner. Deliberately NOT enabled with a
+     placeholder code: that would fire a failing cross-origin request on every
+     page load and log nothing.
+
+     TO ENABLE: create the site at goatcounter.com, replace YOURCODE below, and
+     uncomment. Do this BEFORE any significant copy or design change, so those
+     can be judged on data rather than taste (runbook Step 6.6).
+
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+-->
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1A2744;
+    --navy-deep: #0F1A30;
+    --navy-mid: #243358;
+    --cyan: #00E5FF;
+    --blue: #00B4D8;
+    --blue-mid: #0090B8;
+    --white: #F8FAFF;
+    --off-white: #EEF2FF;
+    --muted: #96A2BF;
+    --card-bg: rgba(26, 39, 68, 0.6);
+    --border: rgba(0, 180, 216, 0.15);
+    --font-brand: 'Syne', sans-serif;
+    --font-display: 'Work Sans', sans-serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--navy-deep);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 26, 48, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-wordmark { font-family: var(--font-brand); line-height: 1.1; }
+  .nav-wordmark .it-just { display: block; font-size: 10px; font-weight: 400; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-wordmark .fitz-ai { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+  .nav-wordmark .fitz { color: var(--cyan); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+
+  .nav-links a {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--cyan);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+  }
+
+  .nav-cta {
+    font-family: var(--font-display) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    color: var(--navy-deep) !important;
+    background: var(--cyan);
+    padding: 10px 20px !important;
+    border-radius: 6px;
+    transition: background 200ms ease, transform 160ms var(--ease-out) !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav-cta:hover { background: #33EDFF; color: var(--navy-deep) !important; transform: translateY(-1px) !important; }
+  }
+  .nav-cta:active { transform: scale(0.97) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 96px 48px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 72% 50%, rgba(0, 180, 216, 0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 15% 80%, rgba(0, 229, 255, 0.05) 0%, transparent 55%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 180, 216, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 180, 216, 0.022) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 85% 85% at 65% 45%, black 15%, transparent 80%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 28px;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 100px;
+    background: rgba(0, 229, 255, 0.05);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7.5vw, 92px);
+    font-weight: 800;
+    line-height: 0.93;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-h1 .dim { color: rgba(248, 250, 255, 0.46); }
+  .hero-h1 .bright { color: var(--white); }
+  .hero-h1 .accent { color: var(--cyan); }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(248, 250, 255, 0.62);
+    line-height: 1.65;
+    max-width: 510px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-sub strong { color: var(--white); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+  .btn-primary {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--navy-deep);
+    background: var(--cyan);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 200ms var(--ease-out), box-shadow 200ms ease, opacity 150ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0, 229, 255, 0.175); }
+    .btn-primary:hover::before { transform: translateX(100%); }
+  }
+  .btn-primary:active { transform: translateY(-1px) scale(0.97); box-shadow: 0 4px 16px rgba(0, 229, 255, 0.2); }
+
+  .btn-ghost {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost .arrow { transition: transform 200ms var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost:hover .arrow { transform: translateX(5px); }
+  }
+  .btn-ghost:active { opacity: 0.7; }
+
+  .hero-icon-wrap {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    animation: heroIconIn 1s 0.15s ease both, floatIcon 5s 1.2s ease-in-out infinite;
+  }
+
+  .hero-icon-wrap img, .hero-icon-wrap svg {
+    width: clamp(260px, 26vw, 420px);
+    height: auto;
+    filter: drop-shadow(0 0 50px rgba(0, 180, 216, 0.45)) drop-shadow(0 0 100px rgba(0, 229, 255, 0.15));
+  }
+
+  @keyframes heroIconIn { from{opacity:0;transform:translateY(-50%) scale(0.9)} to{opacity:1;transform:translateY(-50%) scale(1)} }
+  @keyframes floatIcon {
+    0%,100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
+    33%      { transform: translateY(-50%) translateY(-14px) rotate(1.2deg); }
+    66%      { transform: translateY(-50%) translateY(7px) rotate(-0.6deg); }
+  }
+
+  /* TICKER */
+  .ticker-wrap {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(26, 39, 68, 0.3);
+    padding: 14px 0;
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker 32s linear infinite;
+  }
+
+  .ticker-item {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+
+  .ticker-item::before { content: "»"; color: var(--muted); opacity: 0.5; margin-right: 10px; font-size: 10px; }
+  .ticker-item:first-child::before, .ticker-item:nth-child(12)::before { display: none; }
+
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+  /* SECTIONS */
+  section { position: relative; overflow-x: clip; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(248, 250, 255, 0.58);
+    max-width: 540px;
+    line-height: 1.65;
+  }
+
+  /* SERVICES */
+  #services { background: rgba(15, 26, 48, 0.55); }
+
+  .services-header {
+    display: block;
+    margin-bottom: 36px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms var(--ease-out), border-color 200ms ease, box-shadow 250ms var(--ease-out);
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .service-card:hover { transform: translateY(-7px); border-color: rgba(0, 180, 216, 0.4); box-shadow: 0 28px 70px rgba(0,0,0,0.32), 0 0 0 1px rgba(0,229,255,0.07); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover .service-icon-wrap {
+      background: rgba(0, 180, 216, 0.18);
+      border-color: rgba(0, 229, 255, 0.4);
+      transform: scale(1.07);
+    }
+  }
+
+  .service-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(0, 180, 216, 0.08);
+    border: 1px solid rgba(0, 180, 216, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-shrink: 0;
+    transition: background 200ms ease, border-color 200ms ease, transform 200ms var(--ease-out);
+  }
+  .service-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 14px; }
+
+  .service-desc { font-size: 15px; font-weight: 300; color: rgba(248, 250, 255, 0.58); line-height: 1.65; margin-bottom: 28px; }
+
+  .service-tiers { display: flex; flex-direction: column; gap: 10px; }
+
+  .tier-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: rgba(0, 180, 216, 0.05);
+    border: 1px solid rgba(0, 180, 216, 0.1);
+    border-radius: 8px;
+    transition: background 150ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tier-row:hover { background: rgba(0, 180, 216, 0.12); }
+  }
+  .tier-name { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+  .tier-price { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--cyan); }
+
+  /* FEATURED WORK */
+  #work { background: rgba(15, 26, 48, 0.45); }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-top: 24px;
+    padding: 0;
+    overflow: visible;
+  }
+  .work-grid > .puzzle { display: flex; min-width: 0; }
+  /* One compact card sits beside the hero, both full height. This was a 2x2 grid
+     with two stacked compacts until the Pierce card was pulled out on 2026-07-30. */
+  .work-grid > .puzzle.work-hero,
+  .work-grid > .puzzle.work-compact { grid-row: 1 / 3; }
+  .work-grid > .puzzle.work-compact { min-height: 180px; }
+  .work-grid .puzzle__content { display: flex; flex-direction: column; height: 100%; }
+  .work-grid > .puzzle.puzzle--left-blank .puzzle__content { padding-left: 56px; }
+
+  /* Hero dashboard preview */
+  .wh-preview {
+    border-bottom: 1px solid rgba(0, 180, 216, 0.12);
+    padding: 1rem 1.4rem 0.6rem;
+    flex-shrink: 0;
+  }
+  .wh-title-row { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.65rem; }
+  .wh-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 0.5rem; overflow: hidden; }
+  .wh-tab { font-size: 0.58rem; font-weight: 500; padding: 4px 8px; color: var(--muted); border-bottom: 2px solid transparent; letter-spacing: 0.04em; white-space: nowrap; }
+  .wh-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+  .wh-kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 0.5rem; }
+  .wh-kpi { background: rgba(26,39,68,0.5); border: 1px solid rgba(0,180,216,0.09); border-radius: 5px; padding: 5px 7px; }
+  .wh-kpi-label { font-size: 0.46rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+  .wh-kpi-value { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; }
+  .wh-kpi-value.pos { color: #22c55e; }
+  .wh-kpi-value.neg { color: #f87171; }
+  .wh-kpi-value.hl  { color: var(--cyan); }
+  .wh-table { width: 100%; border-collapse: collapse; font-size: 0.57rem; margin-bottom: 0.5rem; }
+  .wh-table th { color: var(--muted); text-align: left; padding: 3px 5px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .wh-table td { padding: 3px 5px; border-bottom: 1px solid rgba(255,255,255,0.03); color: #c8d0e0; }
+  .wh-table td.hl  { color: var(--cyan); font-weight: 600; }
+  .wh-table td.pos { color: #22c55e; }
+  .wh-table td.neg { color: #f87171; }
+  .wh-anomaly { font-size: 0.52rem; background: rgba(234,179,8,0.07); border: 1px solid rgba(234,179,8,0.18); border-radius: 3px; padding: 3px 7px; margin-bottom: 3px; color: #fde047; display: flex; align-items: center; gap: 5px; }
+  .wh-anomaly-dot { width: 5px; height: 5px; border-radius: 50%; background: #f97316; flex-shrink: 0; }
+
+  /* Hero card body */
+  .wh-body { padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+  .wh-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .wh-tag { font-size: 0.65rem; font-weight: 500; padding: 2px 9px; border-radius: 100px; border: 1px solid rgba(0,229,255,0.18); color: var(--muted); background: rgba(0,229,255,0.04); }
+  .wh-tag.wh-special { border-color: rgba(0,229,255,0.4); color: var(--cyan); background: rgba(0,229,255,0.08); }
+  .wh-tag.wh-indigo  { border-color: rgba(99,102,241,0.35); color: #818cf8; background: rgba(99,102,241,0.07); }
+  .wh-project-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+  .wh-project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .wh-highlights { display: flex; flex-direction: column; gap: 4px; }
+  .wh-highlight { font-size: 0.75rem; color: #c8d0e0; display: flex; align-items: flex-start; gap: 7px; }
+  .wh-highlight::before { content: '->'; color: var(--cyan); font-size: 0.68rem; flex-shrink: 0; margin-top: 1px; }
+  .wh-cta-row { margin-top: auto; display: flex; gap: 10px; align-items: center; padding-top: 6px; }
+  .wh-btn { font-family: var(--font-display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy-deep); background: var(--cyan); border: none; border-radius: 5px; padding: 7px 16px; cursor: pointer; transition: transform 160ms var(--ease-out), opacity 150ms ease; }
+  @media (hover: hover) and (pointer: fine) { .wh-btn:hover { opacity: 0.85; } }
+  .wh-btn:active { transform: scale(0.97); opacity: 0.9; }
+  .wh-btn-ghost { font-size: 0.72rem; color: var(--muted); background: none; border: none; cursor: pointer; }
+
+  /* Compact card body */
+  .wc-preview { padding: 0.85rem 1.1rem 0.7rem; border-bottom: 1px solid rgba(0,180,216,0.09); flex-shrink: 0; }
+  .wc-body    { padding: 0.85rem 1.1rem; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .wc-title   { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
+  .wc-desc    { font-size: 0.75rem; color: var(--muted); line-height: 1.55; font-weight: 300; flex: 1; }
+
+  /* ProjectDash mini-grid */
+  .pd-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .pd-mini-card { background: rgba(26,39,68,0.7); border: 1px solid rgba(0,180,216,0.1); border-radius: 3px; padding: 4px 5px; }
+  .pd-dots { display: flex; gap: 2px; margin-bottom: 2px; }
+  .pd-dot  { width: 4px; height: 4px; border-radius: 50%; }
+  .pd-bar  { height: 2px; border-radius: 1px; background: rgba(0,229,255,0.14); margin-bottom: 2px; }
+  .pd-bar.filled { background: var(--cyan); }
+
+  /* Pierce scene */
+  /* pierceGlow is kept: the live widget's .pierce-panel-dot still uses it. The
+     .pierce-scene / -wrap / -glow / -bubble / -cursor / -label rules that used to
+     sit here belonged to the Featured Work card, removed 2026-07-30. */
+  @keyframes pierceGlow { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+
+  /* Mobile: stack work grid */
+  @media (max-width: 920px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 0;
+    }
+    .work-grid > .puzzle.work-hero { grid-row: auto; min-height: 420px; }
+    .work-grid > .puzzle.puzzle--left-blank .puzzle__content { padding-left: 16px; }
+  }
+
+  /* PROCESS */
+  #process { background: var(--navy-deep); }
+
+  .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    padding: 0 0 32px;
+    position: relative;
+    transition: transform 200ms var(--ease-out);
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 28px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(0, 229, 255, 0.4), rgba(0, 180, 216, 0.05));
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .step:hover { transform: translateX(10px); }
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--navy-deep);
+    background: var(--cyan);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .step-desc { font-size: 14px; font-weight: 300; color: rgba(248, 250, 255, 0.54); line-height: 1.6; }
+
+  .process-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 280px; }
+
+  .process-icon-glow { position: relative; display: flex; align-items: center; justify-content: center; }
+
+  .process-icon-glow .logo-circle {
+    width: 280px;
+    height: 280px;
+    border-width: 2px;
+    border-color: rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.05);
+    filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.275));
+    animation: floatSlow 6s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+  }
+  .process-icon-glow .fallback-svg {
+    width: 270px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.275));
+    animation: floatSlow 6s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes floatSlow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+
+  .glow-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    top: 50%; left: 50%;
+    animation: expandRing 3.5s ease-out infinite;
+  }
+
+  .glow-ring:nth-child(1) { width: 310px; height: 310px; transform: translate(-50%,-50%); animation-delay: 0s; }
+  .glow-ring:nth-child(2) { width: 400px; height: 400px; transform: translate(-50%,-50%); animation-delay: 1.2s; }
+  .glow-ring:nth-child(3) { width: 490px; height: 490px; transform: translate(-50%,-50%); animation-delay: 2.4s; }
+
+  @keyframes expandRing {
+    0% { opacity: 0.5; transform: translate(-50%,-50%) scale(0.88); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(1.08); }
+  }
+
+  /* PRICING */
+  #pricing { background: rgba(15, 26, 48, 0.65); }
+
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
+
+  .price-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 38px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+  }
+
+  .price-card.featured { border-color: rgba(0, 229, 255, 0.42); background: rgba(0, 180, 216, 0.065); }
+
+
+  @media (hover: hover) and (pointer: fine) {
+    .price-card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+  }
+
+  .price-service { font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+  .price-tier { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 20px; }
+
+  .price-range { font-family: var(--font-display); font-size: 38px; font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 6px; line-height: 1; }
+  .price-range .currency { font-size: 22px; font-weight: 500; color: var(--muted); vertical-align: super; }
+
+  .price-divider { width: 100%; height: 1px; background: var(--border); margin: 16px 0; }
+  .price-desc { font-size: 14px; font-weight: 300; color: rgba(248, 250, 255, 0.58); line-height: 1.62; }
+
+  .overage-note { max-width: 1200px; margin: 24px auto 0; padding: 0 48px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .overage-note::before { content: '⚡'; font-size: 15px; }
+
+  /* WHY */
+  #why { background: var(--navy-deep); }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 24px; }
+  .why-list { display: flex; flex-direction: column; gap: 32px; }
+
+  .why-item { display: flex; gap: 20px; align-items: flex-start; }
+
+  .why-icon-wrap {
+    width: 46px; height: 46px;
+    border-radius: 11px;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .why-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .why-item:hover .why-icon-wrap { background: rgba(0, 180, 216, 0.2); transform: scale(1.07); }
+  }
+
+  .why-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .why-desc { font-size: 14px; font-weight: 300; color: rgba(248, 250, 255, 0.54); line-height: 1.65; }
+
+  /* FAQ
+     Native <details>/<summary> accordion - no JavaScript, so it is keyboard-operable
+     and screen-reader-friendly by default. */
+  #faq { background: var(--navy-deep); }
+  .faq-list { margin-top: 40px; border-top: 1px solid var(--border); }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-item summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+  /* Remove the default disclosure triangle in both engines. */
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::marker { content: ''; }
+  .faq-chevron {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    stroke: var(--cyan);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+  .faq-answer {
+    padding: 0 42px 22px 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248, 250, 255, 0.58);
+    line-height: 1.72;
+    max-width: 78ch;
+  }
+  .faq-item summary:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .faq-item summary:hover { color: var(--cyan); }
+  }
+  /* Motion is opt-in: the chevron only animates where motion is welcome. The global
+     reduce block later in this sheet also zeroes it, this keeps it honest at source. */
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-chevron { transition: transform 0.28s var(--ease-out); }
+  }
+
+  .why-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: sticky;
+    top: 100px;
+  }
+
+  .why-panel-title { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+
+  .target-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .target-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    background: rgba(0, 180, 216, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background 200ms ease, border-color 200ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .target-item:hover { background: rgba(0, 180, 216, 0.1); border-color: rgba(0, 180, 216, 0.3); }
+  }
+  .target-item .ti { font-size: 18px; }
+
+  /* CTA */
+  #contact {
+    background: linear-gradient(180deg, var(--navy-deep) 0%, rgba(0, 35, 70, 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 900px;
+    background: radial-gradient(ellipse, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner { text-align: center; position: relative; z-index: 2; }
+
+  .cta-icon-circle {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 36px;
+    border-width: 2px;
+    border-color: rgba(0, 229, 255, 0.5);
+    background: rgba(0, 229, 255, 0.08);
+    animation: floatSlow 4.5s ease-in-out infinite;
+    box-shadow: 0 0 16px rgba(0, 180, 216, 0.2), 0 0 40px rgba(0, 180, 216, 0.075);
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    margin-bottom: 24px;
+  }
+
+  .cta-title .accent { color: var(--cyan); }
+
+  .cta-sub { font-size: 18px; font-weight: 300; color: rgba(248, 250, 255, 0.6); margin-bottom: 48px; line-height: 1.6; }
+
+  .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  .btn-outline {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--cyan);
+    border: 1px solid rgba(0, 229, 255, 0.38);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 200ms var(--ease-out), background 200ms ease, border-color 200ms ease;
+    background: rgba(0, 229, 255, 0.04);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-outline:hover { background: rgba(0, 229, 255, 0.1); border-color: rgba(0, 229, 255, 0.7); transform: translateY(-2px); }
+  }
+  .btn-outline:active { transform: scale(0.97); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    background: var(--navy-deep);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .footer-wm { font-family: var(--font-brand); font-size: 16px; font-weight: 700; }
+  .footer-wm .fitz { color: var(--cyan); }
+  .footer-note { font-size: 13px; color: var(--muted); }
+  .footer-note a { color: var(--blue); text-decoration: none; }
+  .footer-note a:hover { color: var(--cyan); }
+
+  /* INTAKE FORM */
+  .intake-form {
+    max-width: 660px;
+    margin: 56px auto 0;
+    text-align: left;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .intake-form-head { margin-bottom: 28px; }
+
+  .intake-form-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .intake-form-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248, 250, 255, 0.58);
+    line-height: 1.6;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .form-field { display: flex; flex-direction: column; gap: 7px; }
+  .form-field-full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--white);
+  }
+
+  .form-field .req { color: var(--cyan); }
+  .form-field .opt { color: var(--muted); font-weight: 400; letter-spacing: 0; }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--white);
+    background: rgba(15, 26, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 13px;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-field textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: var(--muted); }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: rgba(0, 229, 255, 0.55);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.12);
+  }
+
+  .form-field select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2396A2BF' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 13px center;
+    padding-right: 34px;
+  }
+
+  .form-field.invalid input,
+  .form-field.invalid select,
+  .form-field.invalid textarea { border-color: #ff6b81; }
+
+  /* Honeypot — off-screen, hidden from humans, harvested by bots */
+  .form-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .intake-submit {
+    margin-top: 24px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: block;
+  }
+  .intake-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none !important; }
+  .intake-submit:not(:disabled):active { transform: scale(0.98) !important; box-shadow: none !important; }
+
+  .form-status {
+    margin-top: 16px;
+    font-size: 13px;
+    text-align: center;
+    min-height: 18px;
+    line-height: 1.5;
+  }
+  .form-status.success { color: var(--cyan); }
+  .form-status.error { color: #ff8a9b; }
+
+  /* SCROLL REVEAL */
+  .no-js .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .nav-hamburger:hover { background: rgba(0, 180, 216, 0.1); }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 26, 48, 0.72);
+    backdrop-filter: blur(4px);
+    z-index: 950;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu-overlay.active { opacity: 1; }
+
+  /* MOBILE DRAWER */
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: 0;
+    width: min(360px, 90vw);
+    height: 100%;
+    background: var(--navy);
+    border-left: 1px solid var(--border);
+    z-index: 960;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.35s;
+    overflow-y: auto;
+  }
+  .mobile-menu.active { transform: translateX(0); visibility: visible; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-menu-close:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+  .mobile-nav-links { list-style: none; padding: 10px 0; }
+
+  .mobile-nav-link {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid var(--border);
+    transition: color 200ms ease, background 200ms ease, transform 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-nav-link:hover { color: var(--white); background: rgba(0, 180, 216, 0.06); transform: translateX(8px); }
+  }
+
+  .mobile-nav-cta {
+    display: block;
+    margin: 20px 24px 8px;
+    text-align: center;
+    background: var(--cyan);
+    color: var(--navy-deep) !important;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-bottom: none !important;
+    transition: background 0.2s, transform 0.15s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .mobile-nav-cta:hover { background: #33EDFF; transform: translateY(-1px); }
+  }
+  .mobile-nav-cta:active { transform: scale(0.97); }
+
+  /* CIRCLE LOGO */
+  .logo-circle {
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 229, 255, 0.35);
+    background: rgba(0, 229, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .logo-circle img {
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+  }
+  a:hover .logo-circle {
+    border-color: rgba(0, 229, 255, 0.7);
+    background: rgba(0, 229, 255, 0.12);
+  }
+
+  /* GPU-PROMOTED CONTINUOUS ANIMATIONS */
+  .puzzle-float { will-change: transform; }
+  .glow-ring { will-change: transform, opacity; }
+  .hero-icon-wrap { will-change: transform; }
+  .ticker-track { will-change: transform; }
+  .process-icon-glow .logo-circle,
+  .process-icon-glow .fallback-svg { will-change: transform; }
+  .cta-icon-circle { will-change: transform; }
+
+  /* FOCUS VISIBLE: keyboard navigation indicators */
+  .nav-links a:focus-visible {
+    color: var(--white);
+    outline: 2px solid rgba(0, 229, 255, 0.7);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .nav-cta:focus-visible {
+    outline: 2px solid rgba(0, 229, 255, 0.85) !important;
+    outline-offset: 3px !important;
+  }
+  .nav-hamburger:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid rgba(0, 229, 255, 0.9);
+    outline-offset: 3px;
+  }
+  .btn-ghost:focus-visible {
+    color: var(--white);
+    outline: 2px solid rgba(0, 229, 255, 0.7);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .btn-outline:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+  .mobile-menu-close:focus-visible,
+  .mobile-nav-link:focus-visible,
+  .mobile-nav-cta:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+  }
+  .wh-btn:focus-visible {
+    outline: 2px solid rgba(0, 229, 255, 0.9);
+    outline-offset: 3px;
+  }
+
+  /* REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .puzzle-float, .glow-ring, .hero-icon-wrap, .ticker-track,
+    .process-icon-glow .logo-circle, .process-icon-glow .fallback-svg,
+    .cta-icon-circle { will-change: auto; }
+  }
+
+  /* MOBILE */
+  /* Nav swaps to the hamburger EARLIER than the 920px layout breakpoint below.
+     Measured: logo 115px + nav-links 895px + 2x48px padding = 1107px minimum before the
+     desktop nav collides with the logo. At the old 920px swap the nav was already
+     overflowing between 920px and 1043px with seven items; the FAQ entry widened that
+     to 1107px. Swapping at 1110px closes the window with 3px of slack.
+     If you add or remove a nav item, re-measure and move this number. */
+  @media (max-width: 1110px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  @media (max-width: 920px) {
+    nav { padding: 16px 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-icon-wrap { display: none; }
+    .section-inner { padding: 48px 24px; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-layout { grid-template-columns: 1fr; }
+    .process-visual { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-panel { position: static; }
+    footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    .overage-note { padding: 0 24px; }
+    .intake-form { padding: 28px 22px; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     PUZZLE PIECE SYSTEM
+     Each .puzzle element gets an SVG path rendered behind its
+     content by puzzle.js. data-sides=top,right,bottom,left where
+     0=flat, 1=tab (out), -1=blank (in).
+     ============================================================ */
+  .puzzle {
+    position: relative;
+    display: block;
+    isolation: isolate;
+  }
+  .puzzle__shape {
+    position: absolute;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .puzzle__path {
+    fill: var(--card-bg);
+    stroke: rgba(0, 180, 216, 0.32);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+    transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
+  }
+  .puzzle:hover > .puzzle__shape .puzzle__path {
+    stroke: rgba(0, 229, 255, 0.7);
+    filter: drop-shadow(0 22px 50px rgba(0, 0, 0, 0.4))
+            drop-shadow(0 0 24px rgba(0, 229, 255, 0.18));
+  }
+  .puzzle__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Solid variants */
+  .puzzle--solid > .puzzle__shape .puzzle__path {
+    fill: var(--navy);
+  }
+  .puzzle--featured > .puzzle__shape .puzzle__path {
+    fill: rgba(0, 180, 216, 0.085);
+    stroke: rgba(0, 229, 255, 0.55);
+  }
+  .puzzle--ghost > .puzzle__shape .puzzle__path {
+    fill: rgba(0, 180, 216, 0.04);
+    stroke: rgba(0, 180, 216, 0.22);
+  }
+  .puzzle--accent > .puzzle__shape .puzzle__path {
+    fill: var(--cyan);
+    stroke: var(--cyan);
+  }
+
+  /* Hover shouldn't lift via transform — that breaks interlock.
+     Use the path filter for the hover signal. */
+  .puzzle-card {
+    cursor: default;
+    transition: filter 0.3s ease;
+  }
+  .puzzle-card:hover {
+    filter: brightness(1.05);
+  }
+
+  /* Section-specific inner padding overrides */
+  #services .section-inner,
+  #work .section-inner,
+  #process .section-inner,
+  #why .section-inner { padding-top: 60px; padding-bottom: 36px; }
+
+  /* Section-header font reduction for dense sections */
+  #services .section-title,
+  #work .section-title,
+  #process .section-title,
+  #why .section-title { font-size: clamp(28px, 3vw, 42px); }
+
+  /* Services element density scoped to puzzle grid */
+  .services-puzzle .service-icon-wrap { width: 36px; height: 36px; margin-bottom: 10px; }
+  .services-puzzle .service-title { font-size: 16px; margin-bottom: 6px; }
+  .services-puzzle .service-desc { font-size: 13px; margin-bottom: 8px; line-height: 1.5; }
+  .services-puzzle .service-tiers { gap: 5px; }
+  .services-puzzle .tier-row { padding: 6px 10px; }
+
+  /* ---- Services puzzle row ---- */
+  .services-puzzle {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 420px;
+    margin-top: 36px;
+    padding: 14px 0;
+  }
+  .services-puzzle > .puzzle {
+    display: flex;
+    min-width: 0;
+  }
+  .services-puzzle > .puzzle:first-child { grid-row: 1 / 3; }
+  .services-puzzle .puzzle__content {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .services-puzzle > .puzzle.puzzle--left-blank  .puzzle__content { padding-left: 42px; }
+  .services-puzzle > .puzzle.puzzle--right-blank .puzzle__content { padding-right: 42px; }
+  .services-puzzle > .puzzle.puzzle--top-blank   .puzzle__content { padding-top: 42px; }
+  .services-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 42px; }
+
+  /* ---- Pricing puzzle row ---- */
+  .pricing-puzzle {
+    display: grid;
+    grid-template-columns: 1fr 1.55fr 1fr;
+    align-items: stretch;
+    margin-top: 32px;
+    padding: 20px 0;
+  }
+  .pricing-puzzle > .puzzle {
+    min-width: 0;
+    min-height: 240px;
+    display: flex;
+  }
+  .pricing-puzzle .puzzle__content {
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+  }
+  .pricing-puzzle > .puzzle.puzzle--left-blank  .puzzle__content { padding-left: 48px; }
+  .pricing-puzzle > .puzzle.puzzle--right-blank .puzzle__content { padding-right: 48px; }
+  .pricing-puzzle > .puzzle.puzzle--top-blank   .puzzle__content { padding-top: 48px; }
+  .pricing-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 48px; }
+  .pricing-puzzle > .puzzle--featured { z-index: 2; }
+
+  /* ---- Care plan puzzle row ----
+     Two equal cards. .pricing-puzzle above is a hard-coded 1fr 1.55fr 1fr three-column
+     grid, so a two-card row cannot reuse it and needs its own container rule. */
+  .careplan-puzzle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    margin-top: 28px;
+    padding: 20px 0;
+  }
+  .careplan-puzzle > .puzzle { min-width: 0; min-height: 220px; display: flex; }
+  .careplan-puzzle .puzzle__content { padding: 26px 34px; display: flex; flex-direction: column; }
+  .careplan-puzzle > .puzzle.puzzle--left-blank   .puzzle__content { padding-left: 48px; }
+  .careplan-puzzle > .puzzle.puzzle--right-blank  .puzzle__content { padding-right: 48px; }
+  .careplan-puzzle > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 48px; }
+  .careplan-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 48px; }
+
+  .careplan-header { max-width: 600px; margin-top: 72px; }
+  .price-unit { font-size: 20px; color: var(--muted); font-weight: 400; }
+  .careplan-annual { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .careplan-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .careplan-list li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: rgba(248, 250, 255, 0.58);
+  }
+  .careplan-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+  }
+  /* Sits INSIDE .section-inner, which already supplies max-width 1200px and the
+     48px gutters - do not re-apply either here or it double-pads. */
+  .careplan-guarantee {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .careplan-guarantee strong { color: rgba(248, 250, 255, 0.82); font-weight: 500; }
+
+  /* ---- Process steps vertical puzzle column ---- */
+  .process-steps-puzzle {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    margin-top: 0;
+  }
+  .process-steps-puzzle > .puzzle {
+    min-height: 100px;
+    display: flex;
+  }
+  .process-steps-puzzle .puzzle__content {
+    padding: 20px 28px;
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+  }
+  .process-steps-puzzle > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 40px; }
+  .process-steps-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 40px; }
+  .process-steps-puzzle > .puzzle.puzzle--left-blank   .puzzle__content { padding-left: 48px; }
+  .process-steps-puzzle > .puzzle.puzzle--right-blank  .puzzle__content { padding-right: 48px; }
+  .process-steps-puzzle > .puzzle:not(:last-child) .puzzle__content { padding-bottom: 32px; }
+
+  .process-steps-puzzle .step-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ---- Why-me vertical puzzle column ---- */
+  .why-puzzle-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    margin-top: 0;
+  }
+  .why-puzzle-grid > .puzzle {
+    min-height: 80px;
+    display: flex;
+  }
+  .why-puzzle-grid .puzzle__content {
+    padding: 16px 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .why-puzzle-grid > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 36px; }
+  .why-puzzle-grid > .puzzle.puzzle--left-blank   .puzzle__content { padding-left: 36px; }
+  .why-puzzle-grid > .puzzle.puzzle--right-blank  .puzzle__content { padding-right: 36px; }
+  .why-puzzle-grid > .puzzle:not(:last-child) .puzzle__content { padding-bottom: 20px; }
+
+  /* ---- Target list small puzzle chips ---- */
+  .target-list-puzzle {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+  }
+  .target-list-puzzle > .puzzle {
+    min-height: 48px;
+    display: flex;
+  }
+  .target-list-puzzle .puzzle__content {
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .target-list-puzzle > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 24px; }
+  .target-list-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 24px; }
+  .target-list-puzzle > .puzzle.puzzle--left-blank   .puzzle__content { padding-left: 30px; }
+  .target-list-puzzle > .puzzle.puzzle--right-blank  .puzzle__content { padding-right: 30px; }
+  .target-list-puzzle > .puzzle:not(:last-child) .puzzle__content { padding-bottom: 24px; }
+
+  /* ---- Section header: small puzzle icon decoration ---- */
+  .puzzle-icon-inline {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--cyan);
+    -webkit-mask: var(--puzzle-mask) center/contain no-repeat;
+            mask: var(--puzzle-mask) center/contain no-repeat;
+    vertical-align: middle;
+  }
+
+  /* ---- Puzzle background pattern (subtle) ---- */
+  .puzzle-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.10;
+    mask-image: radial-gradient(ellipse 70% 70% at 30% 50%, black 10%, transparent 75%);
+  }
+  .puzzle-bg svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ---- Floating decorative puzzle pieces in hero ---- */
+  .puzzle-float {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatPiece 9s ease-in-out infinite;
+  }
+  .puzzle-float:nth-child(odd) { animation-duration: 11s; animation-delay: -3s; }
+  .puzzle-float:nth-child(3n) { animation-duration: 13s; animation-delay: -5s; }
+  .puzzle-float > .puzzle__shape .puzzle__path {
+    fill: rgba(0, 229, 255, 0.04);
+    stroke: rgba(0, 229, 255, 0.45);
+    stroke-width: 1.25;
+  }
+  @keyframes floatPiece {
+    0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+    50%      { transform: translate(8px, -14px) rotate(3deg); }
+  }
+  @media (max-width: 920px) {
+    .puzzle-float { display: none; }
+  }
+
+  /* ---- Mobile: stack puzzle containers, give tabs clearance ---- */
+  @media (max-width: 920px) {
+    /* Services: flat top/bottom — small gap intentional */
+    .services-puzzle {
+      display: flex;
+      flex-direction: column;
+      padding: 0 16px;
+      gap: 12px;
+    }
+    /* Why: interlocking vertical edges — gap must be 0 */
+    .why-puzzle-grid {
+      display: flex;
+      flex-direction: column;
+      padding: 0 16px;
+      gap: 0;
+    }
+    .why-puzzle-grid { display: flex; }
+    /* Process steps interlock vertically — gap must be 0 */
+    .process-steps-puzzle {
+      padding: 8px 16px;
+      gap: 0;
+    }
+    /* data-tab="24": 38px extension — 28px pad gives 52px total clearance */
+    .pricing-puzzle {
+      display: flex;
+      flex-direction: column;
+      padding: 0 28px;
+      gap: 0;
+    }
+    .puzzle__content {
+      padding: 28px 24px !important;
+    }
+    /* Blank-edge padding: content must clear the notch cutout */
+    .process-steps-puzzle > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 40px !important; }
+    .process-steps-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 40px !important; }
+    .process-steps-puzzle > .puzzle.puzzle--left-blank   .puzzle__content { padding-left: 48px !important; }
+    .process-steps-puzzle > .puzzle.puzzle--right-blank  .puzzle__content { padding-right: 48px !important; }
+    .pricing-puzzle > .puzzle.puzzle--top-blank          .puzzle__content { padding-top: 48px !important; }
+    .pricing-puzzle > .puzzle.puzzle--bottom-blank       .puzzle__content { padding-bottom: 48px !important; }
+    .why-puzzle-grid > .puzzle.puzzle--top-blank         .puzzle__content { padding-top: 44px !important; }
+    .target-list-puzzle { gap: 0; }
+    .target-list-puzzle .puzzle__content { padding: 12px 16px !important; }
+    .target-list-puzzle > .puzzle.puzzle--top-blank .puzzle__content { padding-top: 26px !important; }
+    .pricing-puzzle > .puzzle--featured { transform: none; }
+    .careplan-puzzle {
+      display: flex;
+      flex-direction: column;
+      padding: 0 28px;
+      gap: 0;
+    }
+    .careplan-puzzle > .puzzle.puzzle--top-blank    .puzzle__content { padding-top: 48px !important; }
+    .careplan-puzzle > .puzzle.puzzle--bottom-blank .puzzle__content { padding-bottom: 48px !important; }
+    .careplan-header { margin-top: 56px; }
+  }
+
+  /* PIERCE WIDGET */
+  @keyframes piercePulse { 0%,100% { box-shadow: 0 0 12px rgba(0,180,216,0.15); } 50% { box-shadow: 0 0 24px rgba(0,180,216,0.35); } }
+  .pierce-widget-btn {
+    position: fixed; bottom: 1.5rem; right: 1.5rem;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(10,20,40,0.95);
+    border: 1.5px solid rgba(0,180,216,0.45);
+    cursor: pointer; z-index: 800;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+    animation: piercePulse 2.5s ease-in-out infinite;
+  }
+  .pierce-widget-btn:hover { border-color: var(--cyan); transform: scale(1.06); }
+  .pierce-widget-btn:active { transform: scale(0.93); transition-duration: 0.08s; }
+  .pierce-panel {
+    position: fixed; bottom: 0; right: 0;
+    width: 360px; height: 560px;
+    background: #0d1320;
+    border: 1px solid rgba(0,180,216,0.18);
+    border-right: none; border-bottom: none;
+    border-radius: 12px 0 0 0;
+    display: flex; flex-direction: column;
+    z-index: 801;
+    transform: translateX(110%);
+    visibility: hidden;
+    transition: transform 0.35s var(--ease-drawer), visibility 0s 0.35s;
+    overflow: hidden;
+  }
+  .pierce-panel.open { transform: translateX(0); visibility: visible; transition: transform 0.35s var(--ease-drawer); }
+  .pierce-panel-head {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(0,180,216,0.1);
+    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  }
+  .pierce-panel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 6px var(--cyan);
+    animation: pierceGlow 2.5s ease-in-out infinite;
+  }
+  .pierce-panel-title { font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--cyan); flex: 1; }
+  .pierce-panel-close {
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 1rem; line-height: 1; padding: 4px 6px; border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .pierce-panel-close:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+  .pierce-panel-close:active { transform: scale(0.9); }
+  .pierce-messages {
+    flex: 1; overflow-y: auto; padding: 16px 14px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .pierce-messages::-webkit-scrollbar { width: 4px; }
+  .pierce-messages::-webkit-scrollbar-track { background: transparent; }
+  .pierce-messages::-webkit-scrollbar-thumb { background: rgba(0,180,216,0.2); border-radius: 2px; }
+  .pierce-msg {
+    max-width: 88%; padding: 9px 12px; border-radius: 10px;
+    font-size: 0.8rem; line-height: 1.55; word-break: break-word;
+  }
+  .pierce-msg.user {
+    background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.2);
+    color: var(--white); align-self: flex-end;
+    border-radius: 10px 10px 2px 10px;
+  }
+  .pierce-msg.bot {
+    background: rgba(26,39,68,0.65); border: 1px solid var(--border);
+    color: #c8d0e0; align-self: flex-start;
+    border-radius: 10px 10px 10px 2px;
+  }
+  .pierce-chips { display: flex; flex-direction: column; gap: 6px; align-self: flex-start; width: 100%; }
+  .pierce-chip {
+    background: rgba(0,180,216,0.05); border: 1px solid rgba(0,180,216,0.18);
+    color: var(--cyan); font-size: 0.72rem; padding: 7px 12px; border-radius: 20px;
+    cursor: pointer; text-align: left; font-family: var(--font-display);
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .pierce-chip:hover { background: rgba(0,180,216,0.14); border-color: rgba(0,180,216,0.4); }
+  .pierce-chip:active { transform: scale(0.97); }
+  .pierce-input-row {
+    padding: 12px 14px; border-top: 1px solid rgba(0,180,216,0.1);
+    display: flex; gap: 8px; align-items: center; flex-shrink: 0;
+  }
+  .pierce-input {
+    flex: 1; background: rgba(26,39,68,0.6);
+    border: 1px solid rgba(0,180,216,0.18); border-radius: 8px;
+    padding: 8px 12px; font-size: 0.8rem; color: var(--white);
+    font-family: var(--font-body); outline: none; transition: border-color 0.15s;
+  }
+  .pierce-input::placeholder { color: var(--muted); }
+  .pierce-input:focus { border-color: rgba(0,180,216,0.5); }
+  .pierce-send {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--cyan); border: none; cursor: pointer;
+    color: var(--navy-deep); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: background 0.15s, transform 0.1s;
+  }
+  .pierce-send:hover { background: #33ecff; }
+  .pierce-send:active { transform: scale(0.93); transition-duration: 0.08s; }
+  .pierce-send:disabled { background: rgba(0,180,216,0.25); cursor: not-allowed; }
+
+  /* --- PIERCE AVATAR + TYPING DOTS ---
+     The animated CSS hex prism that used to live here was replaced on 2026-07-30
+     with a flat icon, pending a 3D rendering the owner is generating separately.
+     zcDotBounce stays: it drives the typing indicator, not the prism. */
+  @keyframes zcDotBounce { 0%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-5px); } }
+
+  .pierce-avatar-stage {
+    width: 100%; height: 88px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(0,180,216,0.1);
+    background: rgba(8,13,26,0.8);
+    overflow: hidden;
+  }
+  .pierce-avatar {
+    width: 62px; height: 62px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(0, 180, 216, 0.35));
+  }
+  .pierce-btn-icon { object-fit: contain; filter: drop-shadow(0 0 6px rgba(0, 180, 216, 0.4)); }
+  .pierce-typing { display: flex; align-items: center; gap: 5px; }
+  .pierce-typing span {
+    display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(0,180,216,0.5);
+    animation: zcDotBounce 1.2s ease-in-out infinite;
+  }
+  .pierce-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .pierce-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @media (max-width: 920px) {
+    .pierce-panel {
+      width: 100%; height: 60vh;
+      border-radius: 12px 12px 0 0;
+      border-left: none; border-right: none;
+      border-top: 1px solid rgba(0,180,216,0.18);
+      transform: translateY(110%);
+    }
+    .pierce-panel.open { transform: translateY(0); }
+    .pierce-widget-btn { bottom: 1rem; right: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="logo-circle" style="width:40px;height:40px;">
+      <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz logo">
+    </div>
+    <div class="nav-wordmark">
+      <span class="it-just">It Just</span>
+      <span class="fitz-ai"><span class="fitz">Fitz</span></span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="portal.html">Client Portal</a></li>
+    <li><a href="#contact" class="nav-cta">Start an Inquiry</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Floating decorative puzzle pieces -->
+  <div class="puzzle puzzle-float" style="left: 8%; top: 30%; width: 70px; height: 70px;" data-sides="1@0.4|1@0.55|1@0.5|0" data-tab="11"></div>
+  <div class="puzzle puzzle-float" style="left: 14%; top: 62%; width: 56px; height: 56px;" data-sides="-1@0.6|1@0.35|1@0.5|1@0.5" data-tab="9"></div>
+  <div class="puzzle puzzle-float" style="right: 38%; top: 22%; width: 50px; height: 50px;" data-sides="0|1@0.7|1@0.4|-1@0.3" data-tab="9"></div>
+  <div class="puzzle puzzle-float" style="right: 6%; bottom: 12%; width: 64px; height: 64px;" data-sides="-1@0.4|-1@0.5|1@0.55|1@0.6" data-tab="11"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      Greater Philadelphia · Websites &amp; Digital Strategy for Local Business
+    </div>
+    <h1 class="hero-h1">
+      <span class="dim">IT JUST</span><br>
+      <span class="bright">FITZ<span class="accent">_</span></span>
+    </h1>
+    <p class="hero-sub">
+      It Just Fitz builds <strong>fast, findable websites</strong> for local businesses -- and helps you pick the tools that turn visitors into booked jobs. No tech team required.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a Free Inquiry →</a>
+      <a href="#services" class="btn-ghost">See What I Build <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <div class="hero-icon-wrap">
+    <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz" width="400"
+         onerror="this.style.display='none'; document.getElementById('heroSvgFallback').style.display='block'">
+    <svg id="heroSvgFallback" viewBox="0 0 100 100" width="380" style="display:none;filter:drop-shadow(0 0 50px rgba(0,180,216,0.5))">
+      <path d="M50 8 C58 8 64 14 64 22 C64 24 63 26 62 27 L72 27 C76 27 80 31 80 35 L80 48 C82 47 84 46 86 46 C92 46 97 51 97 57 C97 63 92 68 86 68 C84 68 82 67 80 66 L80 78 C80 82 76 86 72 86 L62 86 C63 87 64 89 64 91 C64 99 58 105 50 105 C42 105 36 99 36 91 C36 89 37 87 38 86 L28 86 C24 86 20 82 20 78 L20 66 C18 67 16 68 14 68 C8 68 3 63 3 57 C3 51 8 46 14 46 C16 46 18 47 20 48 L20 35 C20 31 24 27 28 27 L38 27 C37 26 36 24 36 22 C36 14 42 8 50 8 Z" fill="#1A2744"/>
+      <circle cx="35" cy="57" r="3.5" fill="#00E5FF"/><circle cx="50" cy="45" r="3.5" fill="#00E5FF"/><circle cx="65" cy="57" r="3.5" fill="#00E5FF"/>
+      <line x1="35" y1="57" x2="50" y2="45" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="50" y1="45" x2="65" y2="57" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+      <line x1="35" y1="57" x2="65" y2="57" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS
+     Removed 2026-07-30. The four-stat band asserted a 13-year history "at companies
+     like Comcast and SEI" (never worked at either), presented a former employer's
+     project volumetrics as this practice's output, and counted "automations running
+     for clients" when the practice has no clients.
+
+     TODO: a credibility band can return here once real engagements exist and there
+     are true numbers to put in it. Do not reconstruct one from estimates. -->
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <!-- The item list is duplicated verbatim: the marquee animation translates the
+       track by -50%, so the second copy is what scrolls in seamlessly behind the
+       first. Add or remove an item in BOTH halves or the loop visibly jumps. -->
+  <div class="ticker-track">
+    <span class="ticker-item">Web Presence &amp; Lead Capture</span>
+    <span class="ticker-item">Google Business Profile</span>
+    <span class="ticker-item">Missed-Call Text-Back</span>
+    <span class="ticker-item">Click-to-Call &amp; Quote Forms</span>
+    <span class="ticker-item">Automated Review Requests</span>
+    <span class="ticker-item">Local Search Optimization</span>
+    <span class="ticker-item">Online Booking &amp; Scheduling</span>
+    <span class="ticker-item">Service-Area Pages</span>
+    <span class="ticker-item">Call Tracking &amp; Analytics</span>
+    <span class="ticker-item">Field Service Software Setup</span>
+    <span class="ticker-item">Website Care Plans</span>
+    <span class="ticker-item">Web Presence &amp; Lead Capture</span>
+    <span class="ticker-item">Google Business Profile</span>
+    <span class="ticker-item">Missed-Call Text-Back</span>
+    <span class="ticker-item">Click-to-Call &amp; Quote Forms</span>
+    <span class="ticker-item">Automated Review Requests</span>
+    <span class="ticker-item">Local Search Optimization</span>
+    <span class="ticker-item">Online Booking &amp; Scheduling</span>
+    <span class="ticker-item">Service-Area Pages</span>
+    <span class="ticker-item">Call Tracking &amp; Analytics</span>
+    <span class="ticker-item">Field Service Software Setup</span>
+    <span class="ticker-item">Website Care Plans</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <h2 class="section-title">Get found.<br>Get booked. Stay working.</h2>
+      <p class="section-sub" style="margin-top: 16px; max-width: 560px;">A site that shows up in local search, the tools that turn visitors into booked jobs, and someone watching it all after launch.</p>
+    </div>
+
+    <div class="services-puzzle">
+      <!-- Card order is Web Presence -> Growth Plays -> Care Plan: get found, get booked,
+           stay working. The data-sides/data-tab attributes and reveal-delay classes
+           describe how each SLOT interlocks with its neighbours and must stay with the
+           position, never travel with the card content. -->
+      <div class="puzzle puzzle-card reveal" data-sides="0|1@0.25,1@0.75|0|0" data-tab="22">
+        <div class="puzzle__content">
+          <div class="service-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg>
+          </div>
+          <h3 class="service-title">Web Presence &amp; Lead Capture</h3>
+          <p class="service-desc">A fast, secure site that shows up in local search and turns visitors into booked jobs. Google Business Profile, click-to-call, and quote forms wired in from day one. Your domain, registered in your name, always.</p>
+          <div class="service-tiers">
+            <div class="tier-row">
+              <span class="tier-name">Essential: 5 pages, one service area</span>
+              <span class="tier-price">$1,800</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-name">Standard: 8 pages, call tracking</span>
+              <span class="tier-price">$3,200</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-name">Growth: full service-area strategy</span>
+              <span class="tier-price">$4,800+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="puzzle puzzle-card reveal reveal-delay-1" data-sides="0|0|0|-1@0.5" data-tab="22">
+        <div class="puzzle__content">
+          <div class="service-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v3"/><path d="M12 18v3"/><path d="M3 12h3"/><path d="M18 12h3"/></svg>
+          </div>
+          <h3 class="service-title">Growth Plays</h3>
+          <p class="service-desc">The tools that turn a website into booked work: missed-call text-back, Google Business Profile optimization, automated review requests, online booking. I set up software you already own or should -- I don't build you something new to maintain.</p>
+          <div class="service-tiers">
+            <div class="tier-row">
+              <span class="tier-name">Digital Strategy Session</span>
+              <span class="tier-price">$500</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-name">Missed-call text-back setup</span>
+              <span class="tier-price">$650</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-name">Get Found &amp; Get Booked bundle</span>
+              <span class="tier-price">$1,800</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="puzzle puzzle-card reveal reveal-delay-2" data-sides="0|0|0|-1@0.5" data-tab="22">
+        <div class="puzzle__content">
+          <div class="service-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.2-2.9 8-7 9.5-4.1-1.5-7-5.3-7-9.5V6z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+          </div>
+          <h3 class="service-title">Care Plan</h3>
+          <p class="service-desc">Hosting, backups, uptime monitoring, and a person who answers when something breaks. Plus a yearly call to look at what's working and what's leaking leads.</p>
+          <div class="service-tiers">
+            <div class="tier-row">
+              <span class="tier-name">Essential: monitoring &amp; backups</span>
+              <span class="tier-price">$95/mo</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-name">Standard: adds lead reporting</span>
+              <span class="tier-price">$150/mo</span>
+            </div>
+          </div>
+          <p class="careplan-annual">Billed annually. Optional, and never a condition of the build.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section id="work">
+  <div class="section-inner">
+    <h2 class="section-title reveal">Built to solve real problems.</h2>
+    <p class="section-sub reveal">A selection of tools I've designed and shipped -- the kind of build quality and problem-solving I bring to client work.</p>
+
+    <div class="work-grid">
+
+      <!-- HERO: Finances Dashboard — single right edge tab at 0.5 of hero height.
+           Was two tabs (0.25 and 0.75) when two compact cards sat beside it; the
+           Pierce card was pulled out on 2026-07-30, so the second tab would point
+           at nothing. -->
+      <div class="puzzle work-hero puzzle-card reveal" data-sides="0|1@0.5|0|0" data-tab="22">
+        <div class="puzzle__content">
+
+          <div class="wh-preview" aria-hidden="true">
+            <div class="wh-title-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              Budget Dashboard
+            </div>
+            <div class="wh-tabs">
+              <div class="wh-tab active">Dashboard</div>
+              <div class="wh-tab">Transactions</div>
+              <div class="wh-tab">Budget Settings</div>
+              <div class="wh-tab">Savings Goals</div>
+              <div class="wh-tab">Cash Flow</div>
+              <div class="wh-tab">Net Worth</div>
+            </div>
+            <div class="wh-kpi-row">
+              <div class="wh-kpi"><div class="wh-kpi-label">Net Cash Flow</div><div class="wh-kpi-value pos">+$1,240</div></div>
+              <div class="wh-kpi"><div class="wh-kpi-label">Income</div><div class="wh-kpi-value hl">$14,850</div></div>
+              <div class="wh-kpi"><div class="wh-kpi-label">Savings Rate</div><div class="wh-kpi-value pos">14.2%</div></div>
+              <div class="wh-kpi"><div class="wh-kpi-label">Emergency Runway</div><div class="wh-kpi-value hl">4.1 mo</div></div>
+              <div class="wh-kpi"><div class="wh-kpi-label">Budgeted</div><div class="wh-kpi-value">$13,610</div></div>
+              <div class="wh-kpi"><div class="wh-kpi-label">Month-End Forecast</div><div class="wh-kpi-value pos">On track</div></div>
+            </div>
+            <table class="wh-table">
+              <tr><th>Category</th><th>Budget</th><th>Actual</th><th>Gap</th><th>Trend</th></tr>
+              <tr><td class="hl">Money In</td><td>$14,000</td><td class="pos">$14,850</td><td class="pos">+6%</td><td class="pos">up</td></tr>
+              <tr><td>Fixed Expenses</td><td>$6,200</td><td>$6,350</td><td class="neg">+2%</td><td>--</td></tr>
+              <tr><td>Variable Expenses</td><td>$3,000</td><td>$2,780</td><td class="pos">-7%</td><td class="pos">dn</td></tr>
+              <tr><td>Unbudgeted</td><td>--</td><td class="neg">$420</td><td>--</td><td>--</td></tr>
+            </table>
+            <div class="wh-anomaly"><div class="wh-anomaly-dot"></div>Category A: 2.9&#963; above your monthly average</div>
+            <div class="wh-anomaly"><div class="wh-anomaly-dot"></div>Category B: spending +100% vs typical month</div>
+          </div>
+
+          <div class="wh-body">
+            <div class="wh-tags">
+              <span class="wh-tag wh-special">Privacy-First</span>
+              <span class="wh-tag">Python</span>
+              <span class="wh-tag">React</span>
+              <span class="wh-tag">CSV-driven</span>
+              <span class="wh-tag">Anomaly Detection</span>
+            </div>
+            <div class="wh-project-title">Finances Dashboard</div>
+            <div class="wh-project-desc">A personal finance platform built around one principle: <em>you own your data.</em> No bank connection required. Import monthly CSVs, track spending across properties, monitor savings goals, and grow your net worth.</div>
+            <div class="wh-highlights">
+              <div class="wh-highlight">Statistical outlier detection flags unusual spend in real time</div>
+              <div class="wh-highlight">Multi-property: primary home and investment property</div>
+              <div class="wh-highlight">Savings goals, cash flow projections, net worth timeline</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COMPACT: ProjectDash — left blank at 0.5 (= hero tab at 0.25 of hero height) -->
+      <div class="puzzle work-compact puzzle-card reveal reveal-delay-1" data-sides="0|0|0|-1@0.5" data-tab="22">
+        <div class="puzzle__content">
+
+          <div class="wc-preview">
+            <div class="pd-mini">
+              <div class="pd-mini-card"><div class="pd-dots"><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#243358"></div><div class="pd-dot" style="background:#243358"></div></div><div class="pd-bar filled" style="width:35%"></div><div class="pd-bar"></div></div>
+              <div class="pd-mini-card"><div class="pd-dots"><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#fbbf24"></div></div><div class="pd-bar filled" style="width:65%"></div><div class="pd-bar" style="width:45%"></div></div>
+              <div class="pd-mini-card"><div class="pd-dots"><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#00E5FF"></div></div><div class="pd-bar filled" style="width:90%"></div><div class="pd-bar" style="width:55%"></div></div>
+              <div class="pd-mini-card"><div class="pd-dots"><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#243358"></div></div><div class="pd-bar filled" style="width:20%"></div><div class="pd-bar"></div></div>
+              <div class="pd-mini-card"><div class="pd-dots"><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#00E5FF"></div><div class="pd-dot" style="background:#00E5FF"></div></div><div class="pd-bar filled" style="width:80%"></div><div class="pd-bar" style="width:40%"></div></div>
+              <div class="pd-mini-card" style="opacity:0.35"><div class="pd-dots"><div class="pd-dot" style="background:#243358"></div><div class="pd-dot" style="background:#243358"></div></div><div class="pd-bar"></div><div class="pd-bar" style="width:30%"></div></div>
+            </div>
+          </div>
+
+          <div class="wc-body">
+            <div class="wh-tags"><span class="wh-tag">React</span><span class="wh-tag">Vite</span><span class="wh-tag">Tailwind</span></div>
+            <div class="wc-title">ProjectDash</div>
+            <div class="wc-desc">Live command center for every active project: phase progress, priority tasks, and tech stack at a glance. One honest source of truth.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COMPACT: Pierce — left blank at 0.5 (= hero tab at 0.75 of hero height) -->
+
+    </div><!-- .work-grid -->
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="process-layout">
+      <div>
+        <h2 class="section-title" style="margin-bottom: 24px;">From conversation<br>to live in weeks.</h2>
+
+        <div class="process-steps-puzzle">
+          <div class="puzzle puzzle-card reveal" data-sides="0|1@0.4|1@0.3|0" data-tab="22">
+            <div class="puzzle__content">
+              <div class="step-meta">
+                <span class="step-num">01</span>
+              </div>
+              <div>
+                <h3 class="step-title">Free Discovery Call</h3>
+                <p class="step-desc">20 minutes. You describe the problem eating your time, and I tell you whether AI is the right fix and what it would look like, with no pitch deck and no pressure.</p>
+              </div>
+            </div>
+          </div>
+          <div class="puzzle puzzle-card reveal reveal-delay-1" data-sides="-1@0.3|0|1@0.65|1@0.5" data-tab="22">
+            <div class="puzzle__content">
+              <div class="step-meta">
+                <span class="step-num">02</span>
+              </div>
+              <div>
+                <h3 class="step-title">Scoped Flat-Fee Proposal</h3>
+                <p class="step-desc">Deliverables, timeline, and price all in plain English, delivered within a few days, with no scope creep or surprise invoices after you sign.</p>
+              </div>
+            </div>
+          </div>
+          <div class="puzzle puzzle-card reveal reveal-delay-2" data-sides="-1@0.65|1@0.6|1@0.4|0" data-tab="22">
+            <div class="puzzle__content">
+              <div class="step-meta">
+                <span class="step-num">03</span>
+              </div>
+              <div>
+                <h3 class="step-title">Build &amp; Iterate</h3>
+                <p class="step-desc">I build it. You review it. We refine until it's right. Most projects deliver a working version in 2-4 weeks depending on scope.</p>
+              </div>
+            </div>
+          </div>
+          <div class="puzzle puzzle-card reveal reveal-delay-3" data-sides="-1@0.4|0|1@0.5|1@0.35" data-tab="22">
+            <div class="puzzle__content">
+              <div class="step-meta">
+                <span class="step-num">04</span>
+              </div>
+              <div>
+                <h3 class="step-title">Handoff: You Own Everything</h3>
+                <p class="step-desc">Full walkthrough, complete handoff, you own the code and the tools. Optional monthly retainer for ongoing maintenance and updates. Never required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-visual">
+        <div class="process-icon-glow">
+          <div class="glow-ring"></div>
+          <div class="glow-ring"></div>
+          <div class="glow-ring"></div>
+          <div class="logo-circle"
+               onerror-parent="true">
+            <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz logo"
+                 loading="lazy" decoding="async"
+                 onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block'">
+          </div>
+          <svg class="fallback-svg" viewBox="0 0 100 100" width="270" style="display:none">
+            <path d="M50 8 C58 8 64 14 64 22 C64 24 63 26 62 27 L72 27 C76 27 80 31 80 35 L80 48 C82 47 84 46 86 46 C92 46 97 51 97 57 C97 63 92 68 86 68 C84 68 82 67 80 66 L80 78 C80 82 76 86 72 86 L62 86 C63 87 64 89 64 91 C64 99 58 105 50 105 C42 105 36 99 36 91 C36 89 37 87 38 86 L28 86 C24 86 20 82 20 78 L20 66 C18 67 16 68 14 68 C8 68 3 63 3 57 C3 51 8 46 14 46 C16 46 18 47 20 48 L20 35 C20 31 24 27 28 27 L38 27 C37 26 36 24 36 22 C36 14 42 8 50 8 Z" fill="#1A2744"/>
+            <circle cx="35" cy="57" r="3.5" fill="#00E5FF"/><circle cx="50" cy="45" r="3.5" fill="#00E5FF"/><circle cx="65" cy="57" r="3.5" fill="#00E5FF"/>
+            <line x1="35" y1="57" x2="50" y2="45" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="45" x2="65" y2="57" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+            <line x1="35" y1="57" x2="65" y2="57" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div style="max-width: 600px;">
+      <h2 class="section-title">Fixed prices.<br>No hourly surprises.</h2>
+      <p class="section-sub">You know the number before work starts. Anything outside the scope gets quoted and approved first -- never billed by surprise.</p>
+    </div>
+
+    <div class="pricing-puzzle">
+      <div class="puzzle puzzle-card reveal" data-sides="0|1@0.45|1@0.3|1@0.6" data-tab="24">
+        <div class="puzzle__content">
+          <p class="price-service">Growth Plays</p>
+          <p class="price-tier">Get Found &amp; Get Booked</p>
+          <p class="price-range"><span class="currency">$</span>1,800</p>
+          <div class="price-divider"></div>
+          <p class="price-desc">Google Business Profile optimization, missed-call text-back, and an automated review system -- the three that move the needle for trades, bundled.</p>
+        </div>
+      </div>
+
+      <div class="puzzle puzzle-card puzzle--featured reveal reveal-delay-1" data-sides="-1@0.3|1@0.55|1@0.5|-1@0.45" data-tab="24">
+        <div class="puzzle__content">
+          <p class="price-service">Web Presence &amp; Lead Capture</p>
+          <p class="price-tier">Essential Build</p>
+          <p class="price-range"><span class="currency">$</span>1,800</p>
+          <div class="price-divider"></div>
+          <p class="price-desc">Five pages, mobile-first, Google Business Profile set up and optimized, click-to-call, and a quote form that texts you. Standard and Growth tiers add service-area pages and call tracking.</p>
+        </div>
+      </div>
+
+      <div class="puzzle puzzle-card reveal reveal-delay-2" data-sides="-1@0.5|1@0.5|1@0.7|-1@0.55" data-tab="24">
+        <div class="puzzle__content">
+          <p class="price-service">Care Plan</p>
+          <p class="price-tier">Essential</p>
+          <p class="price-range"><span class="currency">$</span>95<span class="price-unit">/mo</span></p>
+          <div class="price-divider"></div>
+          <p class="price-desc">Hosting, SSL, domain renewal, uptime monitoring, off-site backups, and emergency fixes. Billed annually. Optional, and never a condition of the build.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROWTH PLAYS MENU
+         The services card can only show three plays; this is the full menu. Reuses
+         .careplan-header and the global .service-tiers/.tier-row classes so it needs
+         no CSS of its own. Deliberately NOT puzzle cards - eight interlocking pieces
+         would fight the three-card pricing row directly above it. -->
+    <div class="careplan-header">
+      <h2 class="section-title reveal">Pick what you need.</h2>
+      <p class="section-sub reveal">Fixed price, no retainer required. Start with one and add more at the annual review.</p>
+    </div>
+
+    <div class="service-tiers reveal" style="max-width: 760px; margin-top: 28px;">
+      <div class="tier-row">
+        <span class="tier-name">Digital Strategy Session &mdash; 90 min + written findings</span>
+        <span class="tier-price">$500</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Online booking / scheduling integration</span>
+        <span class="tier-price">$600</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Missed-call text-back setup</span>
+        <span class="tier-price">$650</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Review generation system</span>
+        <span class="tier-price">$750</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Google Business Profile deep optimization</span>
+        <span class="tier-price">$850</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Field service software setup (Jobber, Housecall Pro) &mdash; core</span>
+        <span class="tier-price">$1,500</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Get Found &amp; Get Booked bundle &mdash; GBP + missed-call + reviews</span>
+        <span class="tier-price">$1,800</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-name">Field service software setup &mdash; full migration with data</span>
+        <span class="tier-price">$2,800</span>
+      </div>
+    </div>
+    <p class="careplan-guarantee reveal">The Strategy Session is <strong>credited toward the first play</strong> you buy within 30 days. If the answer is that you don't need any of these, I'll tell you that too.</p>
+
+    <!-- CARE PLAN
+         Lives INSIDE .section-inner on purpose. The .overage-note below sits outside it
+         and re-creates its own max-width/padding; putting this block out there too would
+         render it full-bleed.
+         Deliberately TWO cards. Build & Handoff (tier price + $400) is answered in the FAQ
+         and never shown as a pricing card - a third card here reads as an equal option,
+         and the one with no monthly figure attached wins by default. -->
+    <div class="careplan-header">
+      <h2 class="section-title reveal">Keep it working.</h2>
+      <p class="section-sub reveal">Optional. Priced separately from the build, and never a condition of it.</p>
+    </div>
+
+    <div class="careplan-puzzle">
+      <div class="puzzle puzzle-card reveal" data-sides="0|1@0.5|1@0.35|0" data-tab="24">
+        <div class="puzzle__content">
+          <p class="price-service">Care Plan</p>
+          <p class="price-tier">Essential</p>
+          <p class="price-range"><span class="currency">$</span>95<span class="price-unit">/mo</span></p>
+          <p class="careplan-annual">Billed annually at $1,000</p>
+          <div class="price-divider"></div>
+          <ul class="careplan-list">
+            <li>Domain registration renewal handled and monitored</li>
+            <li>Hosting, SSL certificate, and CDN</li>
+            <li>Uptime monitoring with alerts</li>
+            <li>Off-site backups</li>
+            <li>Emergency response &mdash; site down, fixed, no extra charge</li>
+            <li>Google Business Profile monitoring</li>
+            <li>Up to 2 hours of content updates per year</li>
+            <li>Annual review call</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="puzzle puzzle-card reveal reveal-delay-1" data-sides="0|0|1@0.6|-1@0.5" data-tab="24">
+        <div class="puzzle__content">
+          <p class="price-service">Care Plan</p>
+          <p class="price-tier">Standard</p>
+          <p class="price-range"><span class="currency">$</span>150<span class="price-unit">/mo</span></p>
+          <p class="careplan-annual">Billed annually at $1,600</p>
+          <div class="price-divider"></div>
+          <ul class="careplan-list">
+            <li>Everything in Essential, plus:</li>
+            <li>Monthly lead report &mdash; form submissions, tracked calls, and where your traffic came from</li>
+            <li>Quarterly content update block</li>
+            <li>Priority 1-business-day response</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="careplan-guarantee reveal">If you ever stop the care plan, you get <strong>30 days' notice</strong>, your site stays up during it, and your domain and files are yours to take. No hostage situations.</p>
+  </div>
+  <p class="overage-note">Approved scope additions: $150/hr — always estimated and approved before any work starts. &nbsp;|&nbsp; Care plans from $95/mo, billed annually. &nbsp;|&nbsp; Your domain is registered in your name and stays yours, always.</p>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="section-inner">
+    <h2 class="section-title">Not a consultant.<br>A builder.</h2>
+
+    <div class="why-grid">
+      <div class="why-puzzle-grid">
+        <div class="puzzle puzzle-card reveal" data-sides="0|1@0.45|1@0.7|0" data-tab="22">
+          <div class="puzzle__content">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.5-1.5 3.5 0 5 1.5 1.5 3.5 1.5 5 0L21 9.5l-6-6L4.5 16.5z"/><path d="M15 5l4 4"/><path d="M8 13l3 3"/><circle cx="20" cy="4" r="1" fill="var(--cyan)" stroke="none"/></svg>
+            </div>
+            <div>
+              <h3 class="why-title">I've done this inside a Fortune 500</h3>
+              <p class="why-desc">Thirteen years delivering analytics, automation, and AI tooling inside a large enterprise -- the same problems local businesses have, at a scale where getting it wrong is expensive. Now applied to businesses that don't have an IT department.</p>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle puzzle-card reveal reveal-delay-1" data-sides="-1@0.7|0|1@0.35|1@0.55" data-tab="22">
+          <div class="puzzle__content">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h3 class="why-title">The right tool, set up properly</h3>
+              <p class="why-desc">I'm not going to build you custom software you have to maintain forever. I configure proven tools you already own or should, hand you the logins, and show you how they work.</p>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle puzzle-card reveal reveal-delay-2" data-sides="-1@0.35|1@0.6|1@0.6|0" data-tab="22">
+          <div class="puzzle__content">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 21h6M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1v-2.8C7.21 13.16 6 11.22 6 9a6 6 0 0 1 6-6z"/></svg>
+            </div>
+            <div>
+              <h3 class="why-title">No tech team required</h3>
+              <p class="why-desc">The whole point is that you shouldn't need an IT department to use what I build. Everything is designed for real people running real businesses, not engineers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle puzzle-card reveal reveal-delay-3" data-sides="-1@0.6|0|1@0.4|1@0.4" data-tab="22">
+          <div class="puzzle__content">
+            <div class="why-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+              <h3 class="why-title">Flat fees, and you own it</h3>
+              <p class="why-desc">Every project is a scoped flat fee with the number agreed before work starts — no discovery retainer, no open-ended meter. Your domain is registered in your name and stays yours, always. Ongoing care is a separate choice you make after the work is done, never a condition of getting it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-panel reveal">
+        <p class="why-panel-title">Who I Work With</p>
+        <div class="target-list-puzzle">
+          <div class="puzzle puzzle-card" data-sides="0|1@0.5|1@0.4|0" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg> Restaurants &amp; Breweries</div>
+          </div>
+          <div class="puzzle puzzle-card" data-sides="-1@0.4|0|1@0.65|1@0.5" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg> Service Businesses (Salons, Clinics, Trades)</div>
+          </div>
+          <div class="puzzle puzzle-card" data-sides="-1@0.65|1@0.4|1@0.3|0" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Retail &amp; E-commerce</div>
+          </div>
+          <div class="puzzle puzzle-card" data-sides="-1@0.3|0|1@0.55|1@0.45" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> Agriculture &amp; Specialty Producers</div>
+          </div>
+          <div class="puzzle puzzle-card" data-sides="-1@0.55|1@0.5|1@0.7|0" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Professional Services (Law, Accounting, Real Estate)</div>
+          </div>
+          <div class="puzzle puzzle-card" data-sides="-1@0.7|0|0|1@0.4" data-tab="14">
+            <div class="puzzle__content"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Contractors &amp; Home Services</div>
+          </div>
+        </div>
+        <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+          <p style="font-size: 13px; color: var(--muted); line-height: 1.65;">Based in <strong style="color:var(--white)">Ambler, PA</strong>, serving the Greater Philadelphia region. Remote-friendly for the right engagement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ
+     IMPORTANT: the FAQPage JSON-LD near the end of <body> repeats every question and
+     answer below verbatim. Google treats structured data that does not match the
+     rendered content as a violation, so if you edit any answer here you MUST edit the
+     matching entry in that script block in the SAME commit. -->
+<section id="faq">
+  <div class="section-inner">
+    <div style="max-width: 600px;">
+      <h2 class="section-title reveal">Straight answers.</h2>
+      <p class="section-sub reveal">The questions people actually ask before hiring me.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <!-- TODO (flagged 2026-07-30, owner to word): the answer below opens with
+           "Most clients do", which asserts observed behaviour of a client base that
+           does not exist yet. Same category as the stats strip removed above. When
+           reworded, re-run scripts/gen_faq_schema.py so the JSON-LD follows. -->
+      <details class="faq-item">
+        <summary><span>Do I have to sign up for a monthly plan?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">No. Most clients do, because it's the difference between a site that works and a site nobody's watching — but you have a real alternative. Build &amp; Handoff is the project price plus $400: I deploy the site into your own hosting account, transfer the code, hand over every login, write you a runbook, and walk you through all of it on a call. Then it's yours. It costs a bit more than the care plan route because handing a site over is more work at delivery than keeping it. What you give up is monitoring, backups, uptime alerts, emergency fixes, and included update hours. You can join a care plan later for a $400 audit fee.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>What's a "Growth Play"?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Software you already own, or should, set up properly. Missed-call text-back so a missed call turns into a text instead of a lost job. Google Business Profile tuned so you show up in the map results. Automated review requests. Online booking. I'm not building you custom software to maintain -- I'm configuring proven tools and handing you the logins. Fixed price, and you can do one or all of them.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>Who owns my domain?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">You do, always. It's registered at Porkbun in your name, on your card, in your account. I'm added as a delegate so I can manage the DNS, and that's it. If you fire me tomorrow, nothing needs to be transferred — you already own it. I'd rather earn the next year than hold your address hostage.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>What happens if I stop the care plan?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">You get written notice and a 30-day grace period, and your site stays online the whole time. After that, hosting and monitoring end. Your domain is still yours and your site files are still yours — ask and I'll send them, no charge. I'm not going to take a local business offline without warning.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>Can I update the site myself?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">On a care plan, you send me the change and I make it — text edits, photo swaps, new hours, updated contact info. Essential includes two hours a year, Standard adds a block each quarter. Most small businesses use less than that. If you want to be in there editing weekly, I'm honestly the wrong fit and you'd be happier on Squarespace or Wix — I'll tell you that in the first call rather than sell you something that annoys you.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>How long does a build take?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Two to four weeks for Essential and Standard, assuming your copy and photos arrive on time. That last part is the whole ballgame — the single most common reason a two-week project turns into a four-month one is waiting on content. If you don't have copy and photos ready, I can handle that for $500 and we'll stay on schedule.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>What if I need a new page later?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">I'll quote it flat before I start — usually a few hundred dollars depending on what's on it. New pages, design changes, and new features sit outside the care plan's update hours on purpose, because a new page is real design work, not a text edit. Anything outside your plan is $150/hour, always estimated and approved first. You will never get a surprise invoice from me.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>Why not just use Squarespace or Wix?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Sometimes you should, and I'll say so. If you want to edit your own site every week or you're selling products online, go use one of those — you'll be happier and it'll be cheaper. What you get here instead is a site that loads fast, gets set up properly in local search, is wired to actually capture leads and tell you where they came from, and has someone answering the phone when it breaks. That's a different product, not a fancier version of the same one.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>Do you record my phone calls?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Not unless you specifically ask for it and take that decision to your own attorney first. Call tracking platforms often turn recording on by default; I turn it off. Pennsylvania law requires every party on a call to consent to being recorded, and it's a criminal statute, not a slap on the wrist. I'm not switching that on for you as a convenience.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>What happens if you get hit by a bus?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Fair question, and it's why your domain is in your name and your site is plain HTML in a code repository rather than locked inside a platform only I can log into. If I'm gone, you own your domain, you own your files, and any competent developer can pick it up without needing anything from me. Nothing about your site depends on me still being here.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><span>I already have a website. Can you just fix it?</span><svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <p class="faq-answer">Sometimes. Send me the link. If it's built on something reasonable, a rebuild is often cheaper and faster than untangling it — and if your domain is stuck at a registrar that overcharges you, moving it is usually the first thing worth doing, and it takes about an hour. I'll tell you honestly if you're better off keeping what you have.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div class="logo-circle cta-icon-circle">
+        <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz logo"
+             loading="lazy" decoding="async"
+             onerror="this.parentElement.innerHTML='<svg viewBox=\'0 0 100 100\' width=\'52\' height=\'52\'><circle cx=\'35\' cy=\'57\' r=\'3.5\' fill=\'%2300E5FF\'/><circle cx=\'50\' cy=\'45\' r=\'3.5\' fill=\'%2300E5FF\'/><circle cx=\'65\' cy=\'57\' r=\'3.5\' fill=\'%2300E5FF\'/><line x1=\'35\' y1=\'57\' x2=\'50\' y2=\'45\' stroke=\'%2300B4D8\' stroke-width=\'2\' stroke-linecap=\'round\'/><line x1=\'50\' y1=\'45\' x2=\'65\' y2=\'57\' stroke=\'%2300B4D8\' stroke-width=\'2\' stroke-linecap=\'round\'/><line x1=\'35\' y1=\'57\' x2=\'65\' y2=\'57\' stroke=\'%2300B4D8\' stroke-width=\'2\' stroke-linecap=\'round\'/></svg>'">
+      </div>
+      <h2 class="cta-title">Got a task eating your week?<br><span class="accent">Let's fix it.</span></h2>
+      <p class="cta-sub">A 20-minute discovery call, no obligation -- just a real conversation about what's slowing you down.</p>
+      <div class="cta-actions">
+        <a href="mailto:itjustfitzai@gmail.com" class="btn-primary">Email Jim Directly →</a>
+        <a href="https://linkedin.com/in/jim-fitzpatrick-analytics" target="_blank" rel="noopener" class="btn-outline">Connect on LinkedIn</a>
+      </div>
+
+      <!-- INQUIRY INTAKE FORM -->
+      <form class="intake-form reveal" id="inquiryForm" novalidate>
+        <div class="intake-form-head">
+          <h3 class="intake-form-title">Or start a project inquiry</h3>
+          <p class="intake-form-sub">Tell me what's slowing you down. I review every inquiry personally. You'll hear back within one business day.</p>
+        </div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="if-name">Your name <span class="req">*</span></label>
+            <input type="text" id="if-name" name="contact_name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="if-email">Email <span class="req">*</span></label>
+            <input type="email" id="if-email" name="contact_email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="if-phone">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" id="if-phone" name="contact_phone" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="if-business">Business name <span class="opt">(optional)</span></label>
+            <input type="text" id="if-business" name="business_name" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="if-service">What are you interested in?</label>
+            <select id="if-service" name="service_interest">
+              <option value="">Not sure yet; help me figure it out</option>
+              <!-- Option order mirrors the services section. Every value here is a
+                   service_type enum member (migrations 0003 and 0005) and is validated by
+                   submit-inquiry and triage-inquiry. Do not change one here without
+                   changing it there - an unknown value is coerced to null and the
+                   submission still returns 200, so it fails silently.
+                   ai_agents and bi_analysis are deliberately absent: no longer marketed,
+                   but still accepted server-side so a warm lead is never dropped. -->
+              <option value="web_presence">Web Presence &amp; Lead Capture</option>
+              <option value="growth_plays">Growth Plays</option>
+              <option value="care_plan">Website Care Plan</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="if-budget">Rough budget <span class="opt">(optional)</span></label>
+            <select id="if-budget" name="budget_hint">
+              <!-- Bands align to the real tiers. No band may straddle $1,800 (the Essential
+                   build and the Get Found & Get Booked bundle both sit there), or a
+                   qualified lead self-selects into the bucket that looks least serious.
+                   The sub-$1,000 band exists for Growth Plays, which start at $500.
+                   budget_hint is a free-text column, so these values are not enum-bound. -->
+              <option value="">Prefer not to say / not sure yet</option>
+              <option value="Under $1,000">Under $1,000 (a play or two)</option>
+              <option value="$1,800 - $3,200">$1,800 - $3,200</option>
+              <option value="$3,200 - $5,000">$3,200 - $5,000</option>
+              <option value="$5,000+">$5,000+</option>
+            </select>
+          </div>
+          <div class="form-field form-field-full">
+            <label for="if-message">What's the problem you'd like to solve? <span class="req">*</span></label>
+            <textarea id="if-message" name="message" rows="4" required placeholder="The task eating your week, the report you rebuild every month, the website that doesn't pull its weight…"></textarea>
+          </div>
+        </div>
+        <!-- Honeypot: hidden from humans, bots fill it -->
+        <div class="form-hp" aria-hidden="true">
+          <label for="if-company-url">Company URL</label>
+          <input type="text" id="if-company-url" name="company_url" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary intake-submit" id="inquirySubmit">Send Inquiry →</button>
+        <p class="form-status" id="inquiryStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- TODO: restore "LLC" in the footer note below only once the Certificate of
+     Organization is filed with the PA Department of State. Publishing "LLC"
+     before formation misrepresents entity status. Do not restore speculatively. -->
+<footer>
+  <a href="#" class="footer-brand">
+    <div class="logo-circle" style="width:38px;height:38px;">
+      <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz" loading="lazy" decoding="async">
+    </div>
+    <span class="footer-wm"><span class="it-just">It Just </span>
+    <span class="fitz">Fitz</span></span>
+  </a>
+  <p class="footer-note">© 2026 It Just Fitz &nbsp;·&nbsp; Ambler, PA &nbsp;·&nbsp; <a href="mailto:itjustfitzai@gmail.com">itjustfitzai@gmail.com</a> &nbsp;·&nbsp; <a href="portal.html">Client Portal</a> &nbsp;·&nbsp; Built with Claude AI</p>
+</footer>
+
+<!-- PIERCE WIDGET -->
+<button class="pierce-widget-btn" id="pierceWidgetBtn" aria-label="Chat with Pierce" aria-expanded="false">
+  <img src="assets/chatbot-puzzle-icon.webp" alt="" width="30" height="30" class="pierce-btn-icon">
+</button>
+
+<div class="pierce-panel" id="piercePanel" role="dialog" aria-label="Pierce AI Assistant" aria-hidden="true">
+  <div class="pierce-panel-head">
+    <div class="pierce-panel-dot"></div>
+    <div class="pierce-panel-title">PIERCE &middot; AI ASSISTANT</div>
+    <button class="pierce-panel-close" id="piercePanelClose" aria-label="Close chat">&#x2715;</button>
+  </div>
+  <!-- Flat icon stands in for the 3D avatar until the owner's rendering lands. -->
+  <div class="pierce-avatar-stage" id="pierceAvatarStage">
+    <img src="assets/chatbot-puzzle-icon.webp" alt="" class="pierce-avatar" width="62" height="62">
+  </div>
+  <div class="pierce-messages" id="pierceMessages"></div>
+  <div class="pierce-input-row">
+    <input type="text" class="pierce-input" id="pierceInput" placeholder="Ask me anything&hellip;" autocomplete="off" aria-label="Message Pierce">
+    <button class="pierce-send" id="pierceSend" aria-label="Send">
+      <svg viewBox="0 0 16 16" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 8L14 2L8 14L7 9L2 8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-modal="true" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="#" class="nav-logo" id="mobileMenuLogoLink">
+      <div class="logo-circle" style="width:38px;height:38px;">
+        <img src="assets/ItJustFitzIconV3_No_Text-round.webp" alt="It Just Fitz logo">
+      </div>
+      <div class="nav-wordmark">
+        <span class="it-just">It Just</span>
+        <span class="fitz-ai"><span class="fitz">Fitz</span></span>
+      </div>
+    </a>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    <ul class="mobile-nav-links">
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#work" class="mobile-nav-link">Work</a></li>
+      <li><a href="#process" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
+      <li><a href="#why" class="mobile-nav-link">Why Me</a></li>
+      <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="portal.html" class="mobile-nav-link">Client Portal</a></li>
+    </ul>
+    <a href="#contact" class="mobile-nav-cta">Start an Inquiry →</a>
+  </nav>
+</div>
+
+<script>
+  document.documentElement.classList.replace('no-js', 'js');
+
+  // SVG SMIL: CSS reduced-motion does not stop <animate> elements — handle explicitly
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('animate, animateTransform').forEach(function(el) {
+      el.setAttribute('dur', '0.001s');
+      el.setAttribute('repeatCount', '1');
+      el.setAttribute('fill', 'freeze');
+    });
+  }
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Fallback: ensure reveals fire even in background tabs / headless renderers
+  setTimeout(function() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 2000);
+
+  // Nav shrink via IntersectionObserver sentinel
+  const nav = document.getElementById('mainNav');
+  const navSentinel = document.createElement('div');
+  navSentinel.style.cssText = 'position:absolute;top:50px;left:0;width:1px;height:1px;pointer-events:none;';
+  document.body.prepend(navSentinel);
+  new IntersectionObserver(([entry]) => {
+    if (window.innerWidth <= 920) return;
+    nav.style.padding = entry.isIntersecting ? '20px 48px' : '12px 48px';
+  }).observe(navSentinel);
+
+  // Mobile navigation
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileClose = document.getElementById('mobileMenuClose');
+
+  function openMobileMenu() {
+    mobileOverlay.style.display = 'block';
+    requestAnimationFrame(() => {
+      mobileOverlay.classList.add('active');
+      mobileMenu.classList.add('active');
+    });
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileOverlay.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { mobileOverlay.style.display = 'none'; }, 360);
+  }
+
+  hamburger.addEventListener('click', openMobileMenu);
+  mobileClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMobileMenu();
+  });
+
+  // PIERCE WIDGET
+  (function() {
+    // Pierce chat endpoint. Empty by default so the live site shows the offline
+    // fallback until Jim points it at a public HTTPS tunnel to his local Ollama
+    // (e.g. Cloudflare Tunnel / Tailscale Funnel). A visitor browser cannot
+    // reach Jim's machine via localhost, so it is never hardcoded here.
+    // For local dev: set PIERCE_OLLAMA_URL in app-config.js to
+    // 'http://localhost:11434/api/chat'.
+    var PIERCE_CFG     = window.IJF_CONFIG || {};
+    var OLLAMA_URL   = PIERCE_CFG.PIERCE_OLLAMA_URL || '';
+    var OLLAMA_MODEL = PIERCE_CFG.PIERCE_OLLAMA_MODEL || 'ministral-3:8b';
+    // Pierce is the most convincing surface on the page, so it must never be the one
+    // quoting a retired number. The web care plan ($95/$150 per month) and the
+    // automation retainer ($300-$500 per month) are SEPARATE products - never merge
+    // them. The last instruction is deliberate: a firm number on custom work creates
+    // an expectation Jim then has to negotiate down from.
+    var PIERCE_SYSTEM = 'You are Pierce, the assistant for It Just Fitz -- Jim Fitzpatrick\'s web and digital strategy practice in Ambler, PA, serving Greater Philadelphia and the Poconos.\n\nWhat Jim sells:\n1. Websites (Web Presence & Lead Capture), fixed price: Essential $1,800 (5 pages, Google Business Profile setup, click-to-call, quote form). Standard $3,200 (up to 8 pages, 3 service-area pages, call tracking, analytics). Growth $4,800+ (12+ pages, service-area strategy, lead routing). Add $500 if the client is not supplying finished copy and photos.\n2. Care plans, billed annually: Essential $95/mo ($1,000/yr) covers hosting, SSL, domain renewal, uptime monitoring, backups, emergency fixes, and 2 hours of content updates a year. Standard $150/mo ($1,600/yr) adds a monthly lead report, a quarterly content block, and 1-business-day response.\n3. Growth Plays -- fixed-price setup of tools the client already owns or should: Digital Strategy Session $500 (credited toward the first play within 30 days), missed-call text-back $650, Google Business Profile deep optimization $850, review generation system $750, online booking integration $600, field service software setup (Jobber, Housecall Pro) $1,500 core or $2,800 full migration. Bundle "Get Found & Get Booked" (GBP + missed-call + reviews) $1,800.\n\nAlso available: Build & Handoff, for clients who want no recurring cost -- build price plus $400, with the site deployed into the client\'s own hosting account, code transferred, credentials handed over, and a walkthrough call. No monitoring or included updates afterward. Joining a care plan later costs a $400 audit fee. Do NOT describe it as the cheaper option; it costs more, because handing a site over is more work at delivery than keeping it.\n\nApproved scope additions: $150/hr, always estimated and approved before work starts.\n\nKey facts:\n- The client\'s domain is registered in the client\'s own name and always belongs to them.\n- Jim configures proven software; he does not build custom applications for local businesses.\n- Jim has not published client case studies yet.\n\nContact: itjustfitzai@gmail.com | LinkedIn: linkedin.com/in/jim-fitzpatrick-analytics\n\nTone: direct, plainspoken, no buzzword soup. Keep answers to 2-4 sentences. If someone wants to get started, tell them to email Jim or scroll to the contact section.\n\nHARD RULES: Never invent service details, timelines, prices, client names, results, or credentials. Never claim Jim has worked for a company or has clients. If asked something not covered above, say you do not know and point them to Jim. Do not quote a firm price for Growth tier -- say it is quoted after a short call.';
+    var CHIPS = ['What services do you offer?', 'How much for a website?', 'How do I get started?'];
+
+    var panel      = document.getElementById('piercePanel');
+    var widgetBtn  = document.getElementById('pierceWidgetBtn');
+    var closeBtn   = document.getElementById('piercePanelClose');
+    var msgList    = document.getElementById('pierceMessages');
+    var input      = document.getElementById('pierceInput');
+    var sendBtn    = document.getElementById('pierceSend');
+    if (!panel || !widgetBtn) return;
+
+    var history    = [];
+    var isOpen     = false;
+    var isTyping   = false;
+    var chipsShown = false;
+
+    function openPanel() {
+      isOpen = true;
+      panel.classList.add('open');
+      panel.setAttribute('aria-hidden', 'false');
+      widgetBtn.setAttribute('aria-expanded', 'true');
+      if (!chipsShown) showChips();
+      setTimeout(function() { input.focus(); }, 360);
+    }
+    function closePanel() {
+      isOpen = false;
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden', 'true');
+      widgetBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    function showChips() {
+      chipsShown = true;
+      var wrap = document.createElement('div');
+      wrap.className = 'pierce-chips';
+      CHIPS.forEach(function(text) {
+        var chip = document.createElement('button');
+        chip.className = 'pierce-chip';
+        chip.textContent = text;
+        chip.addEventListener('click', function() { wrap.remove(); sendMessage(text); });
+        wrap.appendChild(chip);
+      });
+      msgList.appendChild(wrap);
+      scrollBottom();
+    }
+
+    function renderMd(raw) {
+      var s = raw.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function appendMsg(role, text) {
+      var el = document.createElement('div');
+      el.className = 'pierce-msg ' + role;
+      el.textContent = text;
+      msgList.appendChild(el);
+      scrollBottom();
+      return el;
+    }
+
+    function appendTyping() {
+      var el = document.createElement('div');
+      el.className = 'pierce-msg bot pierce-typing';
+      el.innerHTML = '<span></span><span></span><span></span>';
+      msgList.appendChild(el);
+      scrollBottom();
+      return el;
+    }
+
+    function scrollBottom() { msgList.scrollTop = msgList.scrollHeight; }
+
+    async function sendMessage(text) {
+      if (isTyping || !text.trim()) return;
+      var userText = text.trim();
+      input.value = '';
+      appendMsg('user', userText);
+      history.push({ role: 'user', content: userText });
+      isTyping = true;
+      sendBtn.disabled = true;
+
+      var botEl = appendTyping();
+
+      // No endpoint configured (the default on the live site): show the
+      // offline fallback rather than fetching a URL that cannot resolve.
+      if (!OLLAMA_URL) {
+        botEl.classList.remove('pierce-typing');
+        botEl.textContent = "Pierce's offline right now while Jim upgrades the tunnel. Email itjustfitzai@gmail.com or use the inquiry form below -- I respond within one business day.";
+        isTyping = false;
+        sendBtn.disabled = false;
+        input.focus();
+        return;
+      }
+
+      try {
+        var res = await fetch(OLLAMA_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model: OLLAMA_MODEL, messages: [{ role: 'system', content: PIERCE_SYSTEM }].concat(history), stream: true })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        var reader  = res.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer  = '';
+        var fullText = '';
+
+        while (true) {
+          var chunk = await reader.read();
+          if (chunk.done) break;
+          buffer += decoder.decode(chunk.value, { stream: true });
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            if (!line) continue;
+            try {
+              var data = JSON.parse(line);
+              if (data.message && data.message.content) {
+                fullText += data.message.content;
+                if (botEl.classList.contains('pierce-typing')) botEl.classList.remove('pierce-typing');
+                botEl.innerHTML = renderMd(fullText);
+                scrollBottom();
+              }
+            } catch (_) {}
+          }
+        }
+
+        if (fullText) history.push({ role: 'assistant', content: fullText });
+        else { botEl.classList.remove('pierce-typing'); botEl.textContent = "I didn't get a response -- is Ollama running?"; }
+      } catch (err) {
+        botEl.classList.remove('pierce-typing');
+        botEl.textContent = "Pierce's offline right now while Jim upgrades the tunnel. Email itjustfitzai@gmail.com or use the inquiry form below -- I respond within one business day.";
+      } finally {
+        isTyping = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    widgetBtn.addEventListener('click', function() { isOpen ? closePanel() : openPanel(); });
+    closeBtn.addEventListener('click', closePanel);
+    sendBtn.addEventListener('click', function() { sendMessage(input.value); });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(input.value); }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isOpen) closePanel();
+    });
+
+  })();
+
+  // PIERCE HEX PRISM -- 6-face CSS 3D hexagonal prism with eye tracking
+  // Inquiry form submission
+  const inquiryForm = document.getElementById('inquiryForm');
+  if (inquiryForm) {
+    const submitBtn = document.getElementById('inquirySubmit');
+    const statusEl = document.getElementById('inquiryStatus');
+    const cfg = window.IJF_CONFIG || {};
+
+    const setStatus = (msg, kind) => {
+      statusEl.textContent = msg;
+      statusEl.className = 'form-status' + (kind ? ' ' + kind : '');
+    };
+
+    const validateForm = () => {
+      let ok = true;
+      inquiryForm.querySelectorAll('[required]').forEach(field => {
+        const value = field.value.trim();
+        const emailOk = field.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        const valid = value !== '' && emailOk;
+        field.closest('.form-field').classList.toggle('invalid', !valid);
+        if (!valid) ok = false;
+      });
+      return ok;
+    };
+
+    inquiryForm.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('input', () => field.closest('.form-field').classList.remove('invalid'));
+    });
+
+    inquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setStatus('', '');
+
+      if (!validateForm()) {
+        setStatus('Please fill in the highlighted fields with valid details.', 'error');
+        return;
+      }
+
+      // Honeypot — bots fill this hidden field; humans never see it.
+      if (inquiryForm.company_url.value.trim() !== '') {
+        inquiryForm.reset();
+        setStatus('Thanks - your inquiry has been received.', 'success');
+        return;
+      }
+
+      if (!cfg.FUNCTIONS_BASE_URL || (cfg.SUPABASE_ANON_KEY && cfg.SUPABASE_ANON_KEY.includes('YOUR-'))) {
+        setStatus('The inquiry form is not configured yet. Please email itjustfitzai@gmail.com directly.', 'error');
+        return;
+      }
+
+      const payload = {
+        contact_name: inquiryForm.contact_name.value.trim(),
+        contact_email: inquiryForm.contact_email.value.trim(),
+        contact_phone: inquiryForm.contact_phone.value.trim() || null,
+        business_name: inquiryForm.business_name.value.trim() || null,
+        service_interest: inquiryForm.service_interest.value || null,
+        budget_hint: inquiryForm.budget_hint.value || null,
+        message: inquiryForm.message.value.trim(),
+        company_url: inquiryForm.company_url.value,
+        source_page: 'landing'
+      };
+
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(cfg.FUNCTIONS_BASE_URL + '/submit-inquiry', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(cfg.SUPABASE_ANON_KEY ? {
+              'apikey': cfg.SUPABASE_ANON_KEY,
+              'Authorization': 'Bearer ' + cfg.SUPABASE_ANON_KEY
+            } : {})
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Request failed: ' + res.status);
+        inquiryForm.reset();
+        setStatus("Thanks - your inquiry is in. I'll get back to you within one business day.", 'success');
+      } catch (err) {
+        setStatus('Something went wrong sending your inquiry. Please email itjustfitzai@gmail.com directly.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+</script>
+  <!-- FAQ-SCHEMA:BEGIN generated by scripts/gen_faq_schema.py - do not hand-edit -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I have to sign up for a monthly plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Most clients do, because it's the difference between a site that works and a site nobody's watching — but you have a real alternative. Build & Handoff is the project price plus $400: I deploy the site into your own hosting account, transfer the code, hand over every login, write you a runbook, and walk you through all of it on a call. Then it's yours. It costs a bit more than the care plan route because handing a site over is more work at delivery than keeping it. What you give up is monitoring, backups, uptime alerts, emergency fixes, and included update hours. You can join a care plan later for a $400 audit fee."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's a \"Growth Play\"?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Software you already own, or should, set up properly. Missed-call text-back so a missed call turns into a text instead of a lost job. Google Business Profile tuned so you show up in the map results. Automated review requests. Online booking. I'm not building you custom software to maintain -- I'm configuring proven tools and handing you the logins. Fixed price, and you can do one or all of them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who owns my domain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You do, always. It's registered at Porkbun in your name, on your card, in your account. I'm added as a delegate so I can manage the DNS, and that's it. If you fire me tomorrow, nothing needs to be transferred — you already own it. I'd rather earn the next year than hold your address hostage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I stop the care plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You get written notice and a 30-day grace period, and your site stays online the whole time. After that, hosting and monitoring end. Your domain is still yours and your site files are still yours — ask and I'll send them, no charge. I'm not going to take a local business offline without warning."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I update the site myself?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On a care plan, you send me the change and I make it — text edits, photo swaps, new hours, updated contact info. Essential includes two hours a year, Standard adds a block each quarter. Most small businesses use less than that. If you want to be in there editing weekly, I'm honestly the wrong fit and you'd be happier on Squarespace or Wix — I'll tell you that in the first call rather than sell you something that annoys you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a build take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Two to four weeks for Essential and Standard, assuming your copy and photos arrive on time. That last part is the whole ballgame — the single most common reason a two-week project turns into a four-month one is waiting on content. If you don't have copy and photos ready, I can handle that for $500 and we'll stay on schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I need a new page later?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I'll quote it flat before I start — usually a few hundred dollars depending on what's on it. New pages, design changes, and new features sit outside the care plan's update hours on purpose, because a new page is real design work, not a text edit. Anything outside your plan is $150/hour, always estimated and approved first. You will never get a surprise invoice from me."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why not just use Squarespace or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sometimes you should, and I'll say so. If you want to edit your own site every week or you're selling products online, go use one of those — you'll be happier and it'll be cheaper. What you get here instead is a site that loads fast, gets set up properly in local search, is wired to actually capture leads and tell you where they came from, and has someone answering the phone when it breaks. That's a different product, not a fancier version of the same one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you record my phone calls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not unless you specifically ask for it and take that decision to your own attorney first. Call tracking platforms often turn recording on by default; I turn it off. Pennsylvania law requires every party on a call to consent to being recorded, and it's a criminal statute, not a slap on the wrist. I'm not switching that on for you as a convenience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if you get hit by a bus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fair question, and it's why your domain is in your name and your site is plain HTML in a code repository rather than locked inside a platform only I can log into. If I'm gone, you own your domain, you own your files, and any competent developer can pick it up without needing anything from me. Nothing about your site depends on me still being here."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I already have a website. Can you just fix it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sometimes. Send me the link. If it's built on something reasonable, a rebuild is often cheaper and faster than untangling it — and if your domain is stuck at a registrar that overcharges you, moving it is usually the first thing worth doing, and it takes about an hour. I'll tell you honestly if you're better off keeping what you have."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- FAQ-SCHEMA:END -->
+</body>
+</html>

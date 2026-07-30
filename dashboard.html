@@ -198,8 +198,10 @@ const sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY)
 
 // ai_websites is a retired service line, but Postgres has no DROP VALUE so the enum
 // keeps it forever. This map is the only thing that renders a legacy row, so the key
-// stays - drop it and historical inquiries display as undefined.
-const SERVICE_LABEL = { web_presence: "Web Presence", ai_agents: "AI Agents", bi_analysis: "BI & Analysis", ai_websites: "AI Websites (retired)", unspecified: "Unspecified" };
+// stays - drop it and historical inquiries display as undefined. ai_agents and
+// bi_analysis are off the public form as of 2026-07-30 but still accepted from warm
+// leads, so they keep plain labels rather than a "(retired)" suffix.
+const SERVICE_LABEL = { web_presence: "Web Presence", growth_plays: "Growth Plays", care_plan: "Care Plan", ai_agents: "AI Agents", bi_analysis: "BI & Analysis", ai_websites: "AI Websites (retired)", unspecified: "Unspecified" };
 const PHASES = ["discovery", "in_progress", "review", "delivered"];
 const PROJECT_STATUSES = ["active", "on_hold", "complete", "cancelled"];
 const TASK_STATUSES = ["todo", "in_progress", "blocked", "done"];

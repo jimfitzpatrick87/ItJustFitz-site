@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  One URL, because the site is one page. #services, #work, #pricing, #faq and
+  #contact are fragments of this document, not separate URLs - listing them here
+  would be a spam signal, not extra coverage.
+
+  dashboard.html and portal.html are deliberately absent: both are private
+  surfaces and are disallowed in robots.txt permanently.
+
+  This file is not yet reachable by crawlers - robots.txt still carries
+  Disallow: / until the go-live gate in docs/domain-hosting-runbook.md Step 6
+  is cleared. Add city landing pages here only after they exist and are linked.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://itjustfitz.com/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

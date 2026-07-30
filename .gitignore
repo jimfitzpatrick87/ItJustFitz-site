@@ -18,7 +18,6 @@
 
 # ...then re-allow exactly the deployable site.
 !/index.html
-!/itjustfitz-puzzle.html
 !/dashboard.html
 !/portal.html
 !/robots.txt
@@ -29,6 +28,7 @@
 !/assets/app-config.js
 !/assets/puzzle.js
 !/assets/ItJustFitzIconV3_No_Text-round.webp
+!/assets/chatbot-puzzle-icon.webp
 
 # Repo furniture that lives only here (not synced from the source repo).
 # Cloudflare Pages needs no in-repo domain file - the custom domain is bound in
