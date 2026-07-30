@@ -1590,6 +1590,43 @@
     .puzzle-float { display: none; }
   }
 
+  /* ---- Floating pieces in the gutters of the content sections ---- */
+  /* One per section, alternating left/right. Sits OUTSIDE the 1200px .section-inner
+     column and BEHIND the cards. --sf-size drives both the box and the gutter offset,
+     so changing one value moves everything consistently. */
+  .puzzle-float.section-float {
+    --sf-size: 56px;
+    width: var(--sf-size);
+    height: var(--sf-size);
+    z-index: 0;                /* beats .puzzle-float's z-index:1 -> paints behind cards */
+  }
+  /* 50% - 600px is the content column's edge; back off 32px plus the piece's own width.
+     The max() floor keeps it on-screen so overflow-x: clip never eats it. */
+  .section-float--left  { left:  max(16px, calc(50% - 600px - 32px - var(--sf-size))); }
+  .section-float--right { right: max(16px, calc(50% - 600px - 32px - var(--sf-size))); }
+
+  /* Dimmer than the hero floats: ambient texture, not a competing element.
+     Specificity 0,4,0 beats the hero rule at 0,3,0 regardless of source order. */
+  .puzzle-float.section-float > .puzzle__shape .puzzle__path {
+    fill: rgba(0, 229, 255, 0.02);
+    stroke: rgba(0, 229, 255, 0.22);
+    stroke-width: 1;
+  }
+
+  /* Explicit timing variants -- deliberately NOT :nth-child. The hero's
+     .puzzle-float:nth-child(odd)/(3n) rules count every section child, and each of
+     these is its section's first child, so nth-child would put them all in phase.
+     These class selectors (0,3,0) outrank those (0,2,0). */
+  .puzzle-float.section-float--t1 { animation-duration: 10s; animation-delay: -1s; }
+  .puzzle-float.section-float--t2 { animation-duration: 13s; animation-delay: -4s; }
+  .puzzle-float.section-float--t3 { animation-duration: 16s; animation-delay: -7s; }
+
+  /* Below ~1200px the gutter closes and the piece would tuck under the cards.
+     (The 920px .puzzle-float rule above already covers mobile; this is the wider gate.) */
+  @media (max-width: 1200px) {
+    .section-float { display: none; }
+  }
+
   /* ---- Mobile: stack puzzle containers, give tabs clearance ---- */
   @media (max-width: 920px) {
     /* Services: flat top/bottom — small gap intentional */
@@ -1900,6 +1937,10 @@
 
 <!-- SERVICES -->
 <section id="services">
+  <!-- Gutter puzzle piece. Must stay the FIRST child so it paints behind the cards. -->
+  <div class="puzzle puzzle-float section-float section-float--left section-float--t1"
+       style="top: 34%;" aria-hidden="true"
+       data-sides="1@0.45|1@0.5|0|-1@0.4" data-tab="9"></div>
   <div class="section-inner">
     <div class="services-header">
       <h2 class="section-title">Get found.<br>Get booked. Stay working.</h2>
@@ -1985,6 +2026,9 @@
 
 <!-- FEATURED WORK -->
 <section id="work">
+  <div class="puzzle puzzle-float section-float section-float--right section-float--t2"
+       style="top: 28%; --sf-size: 64px;" aria-hidden="true"
+       data-sides="-1@0.55|0|1@0.45|1@0.5" data-tab="11"></div>
   <div class="section-inner">
     <h2 class="section-title reveal">Built to solve real problems.</h2>
     <p class="section-sub reveal">A selection of tools I've designed and shipped -- the kind of build quality and problem-solving I bring to client work.</p>
@@ -2082,6 +2126,9 @@
 
 <!-- PROCESS -->
 <section id="process">
+  <div class="puzzle puzzle-float section-float section-float--left section-float--t3"
+       style="top: 44%; --sf-size: 48px;" aria-hidden="true"
+       data-sides="1@0.4|-1@0.6|1@0.5|0" data-tab="9"></div>
   <div class="section-inner">
     <div class="process-layout">
       <div>
@@ -2161,6 +2208,9 @@
 
 <!-- PRICING -->
 <section id="pricing">
+  <div class="puzzle puzzle-float section-float section-float--right section-float--t1"
+       style="top: 30%;" aria-hidden="true"
+       data-sides="0|1@0.35|-1@0.5|1@0.6" data-tab="10"></div>
   <div class="section-inner">
     <div style="max-width: 600px;">
       <h2 class="section-title">Fixed prices.<br>No hourly surprises.</h2>
@@ -2302,6 +2352,9 @@
 
 <!-- WHY -->
 <section id="why">
+  <div class="puzzle puzzle-float section-float section-float--left section-float--t2"
+       style="top: 52%; --sf-size: 62px;" aria-hidden="true"
+       data-sides="1@0.5|1@0.45|0|-1@0.55" data-tab="11"></div>
   <div class="section-inner">
     <h2 class="section-title">Not a consultant.<br>A builder.</h2>
 
@@ -2389,6 +2442,9 @@
      rendered content as a violation, so if you edit any answer here you MUST edit the
      matching entry in that script block in the SAME commit. -->
 <section id="faq">
+  <div class="puzzle puzzle-float section-float section-float--right section-float--t3"
+       style="top: 38%; --sf-size: 50px;" aria-hidden="true"
+       data-sides="-1@0.4|1@0.6|1@0.5|0" data-tab="9"></div>
   <div class="section-inner">
     <div style="max-width: 600px;">
       <h2 class="section-title reveal">Straight answers.</h2>
@@ -2460,6 +2516,9 @@
 
 <!-- CTA -->
 <section id="contact">
+  <div class="puzzle puzzle-float section-float section-float--left section-float--t1"
+       style="top: 26%; --sf-size: 58px;" aria-hidden="true"
+       data-sides="1@0.6|0|1@0.4|1@0.5" data-tab="10"></div>
   <div class="section-inner">
     <div class="cta-inner">
       <div class="logo-circle cta-icon-circle">
