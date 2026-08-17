@@ -210,7 +210,14 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       detail +
       "<p>Inquiry id that would have been used: " + escapeHtml(id) + "</p>";
 
+  // Fail-soft, but NOT silent. An earlier version set emailOk = res.ok and threw
+  // the status and body away, so a missing key (401), an unverified sending
+  // domain (403), a malformed "from" (422) and a network error all produced the
+  // same observable: nothing at all, not even a Resend dashboard entry, because
+  // Resend does not log a request it rejected at auth. That made a real failure
+  // undiagnosable without a redeploy. Log the reason; never log the key.
   let emailOk = false;
+  let emailErr = "";
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -226,8 +233,27 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       }),
     });
     emailOk = res.ok;
-  } catch {
-    // Swallowed so a Resend outage cannot turn a saved lead into an error page.
+    if (!emailOk) {
+      // Resend returns a JSON error body describing exactly what it objected to.
+      emailErr = "http " + res.status + " " + (await res.text()).slice(0, 400);
+    }
+  } catch (err) {
+    // Still swallowed - a Resend outage must not turn a saved lead into an error
+    // page - but the reason is now recorded rather than discarded.
+    emailErr = "threw: " + (err instanceof Error ? err.message : String(err));
+  }
+
+  if (!emailOk) {
+    // Visible in the Cloudflare dashboard under Workers & Pages -> the project ->
+    // Logs. The key itself is never included; only whether one was configured.
+    console.error(
+      "[inquiry] resend send failed: " + emailErr +
+      " | key_present=" + (env.RESEND_API_KEY ? "yes" : "NO") +
+      " | from=" + (env.RESEND_FROM ?? "(unset, using default)") +
+      " | to=" + brand +
+      " | saved=" + savedOk +
+      " | inquiry_id=" + id,
+    );
   }
 
   // Both channels failed: nothing captured this lead. Tell the visitor, so the
