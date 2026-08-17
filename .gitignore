@@ -30,6 +30,31 @@
 !/assets/ItJustFitzIconV3_No_Text-round.webp
 !/assets/chatbot-puzzle-icon.webp
 
+# Cloudflare Pages Functions (added 2026-08-14, the lead path). These run
+# server-side on Cloudflare's edge and are never served as text to a visitor.
+# Pages auto-detects a functions/ directory in the build output directory.
+#
+# Same three-line idiom as assets/ above, applied at every level: un-ignore the
+# directory, re-ignore its contents, then name each permitted file. That is what
+# keeps an unexpected file inside an allowed directory ignored.
+#
+# The brackets in [id].ts are ESCAPED. Unescaped, gitignore reads [id] as a
+# character class matching one of 'i', 'd' - so the pattern would never match the
+# literal filename, the file would silently never be committed, and the
+# /admin/inquiry/:id route would 404 in production with no error anywhere.
+# Verify with `git check-ignore -v`, never by eye.
+!/functions/
+/functions/*
+!/functions/api/
+/functions/api/*
+!/functions/api/inquiry.ts
+!/functions/admin/
+/functions/admin/*
+!/functions/admin/index.ts
+!/functions/admin/inquiry/
+/functions/admin/inquiry/*
+!/functions/admin/inquiry/\[id\].ts
+
 # Repo furniture that lives only here (not synced from the source repo).
 # Cloudflare Pages needs no in-repo domain file - the custom domain is bound in
 # the Pages project and served from Cloudflare DNS. CNAME was the GitHub Pages

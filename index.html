@@ -2560,10 +2560,10 @@
             <label for="if-service">What are you interested in?</label>
             <select id="if-service" name="service_interest">
               <option value="">Not sure yet; help me figure it out</option>
-              <!-- Option order mirrors the services section. Every value here is a
-                   service_type enum member (migrations 0003 and 0005) and is validated by
-                   submit-inquiry and triage-inquiry. Do not change one here without
-                   changing it there - an unknown value is coerced to null and the
+              <!-- Option order mirrors the services section. Every value here is in the
+                   service_interest domain of the D1 inquiries table and is validated by
+                   VALID_SERVICE in functions/api/inquiry.ts. Do not change one here
+                   without changing it there - an unknown value is coerced to null and the
                    submission still returns 200, so it fails silently.
                    ai_agents and bi_analysis are deliberately absent: no longer marketed,
                    but still accepted server-side so a warm lead is never dropped. -->
@@ -2959,11 +2959,6 @@
         return;
       }
 
-      if (!cfg.FUNCTIONS_BASE_URL || (cfg.SUPABASE_ANON_KEY && cfg.SUPABASE_ANON_KEY.includes('YOUR-'))) {
-        setStatus('The inquiry form is not configured yet. Please email itjustfitzai@gmail.com directly.', 'error');
-        return;
-      }
-
       const payload = {
         contact_name: inquiryForm.contact_name.value.trim(),
         contact_email: inquiryForm.contact_email.value.trim(),
@@ -2981,14 +2976,14 @@
       submitBtn.textContent = 'Sending…';
 
       try {
-        const res = await fetch(cfg.FUNCTIONS_BASE_URL + '/submit-inquiry', {
+        // Posts same-origin to functions/api/inquiry.ts, a Cloudflare Pages
+        // Function. No API key, no config lookup, and no CORS preflight -- do
+        // not re-add any of them. The endpoint reads its own secrets from the
+        // Pages environment; nothing here needs to be configured client-side.
+        const res = await fetch('/api/inquiry', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            ...(cfg.SUPABASE_ANON_KEY ? {
-              'apikey': cfg.SUPABASE_ANON_KEY,
-              'Authorization': 'Bearer ' + cfg.SUPABASE_ANON_KEY
-            } : {})
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload)
         });
