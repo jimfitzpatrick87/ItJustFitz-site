@@ -1,29 +1,46 @@
 # =============================================================================
-# PRE-LAUNCH STATE - THE WHOLE SITE IS BLOCKED FROM SEARCH ENGINES ON PURPOSE.
+# LIVE - the site is open to search engines as of 2026-08-16.
 #
-# Why: the site can deploy to Cloudflare Pages before it is ready to be found.
-# While the anon key is a placeholder the inquiry form is decorative - it shows
-# "not configured yet, email directly" instead of capturing the lead. Getting
-# indexed in that state spends first-impression credit that is expensive to
-# win back.
+# The pre-launch block that used to live here was lifted once the lead path was
+# proven end to end: a real submission reached Cloudflare D1, a Resend
+# notification arrived at itjustfitzai@gmail.com from notifications@itjustfitz.com,
+# and the linked record rendered behind Cloudflare Access.
 #
-# TO GO LIVE (see docs/domain-hosting-runbook.md, Step 6):
-#   1. [ ] Real Supabase anon key in assets/app-config.js, AND an inquiry proven
-#          to land in the DB from a browser. Still a placeholder as of
-#          2026-07-30 - this is the ONLY remaining blocker.
-#   2. [x] SEO head block + sitemap.xml, written against https://itjustfitz.com/
-#          (done 2026-07-30; the landing page is now index.html, served at /)
-#   3. THEN replace the Disallow line below with:
-#          Allow: /
-#          Sitemap: https://itjustfitz.com/sitemap.xml
-#      and keep the dashboard/portal disallow rules underneath.
+# The old blocker text referenced a Supabase anon key. That dependency is gone -
+# index.html now posts same-origin to /api/inquiry and reads no key at all.
+#
+# ---------------------------------------------------------------------------
+# READ THIS BEFORE EDITING: Cloudflare prepends its own block above this file.
+#
+# Cloudflare's Managed robots.txt injects a "BEGIN Cloudflare Managed content"
+# section at the edge, ahead of everything below. That section already contains
+# its own "User-agent: *" group, so the served file has TWO groups for "*".
+#
+# Google merges duplicate groups and resolves conflicts least-restrictive-first,
+# which means an "Allow: /" up there quietly overrides a "Disallow: /" down here.
+# Other crawlers do not all agree on that. Never rely on the interaction:
+#
+#   - Check the SERVED file, not this one: curl https://itjustfitz.com/robots.txt
+#   - If this file and the managed block ever disagree, fix it in the Cloudflare
+#     dashboard (Websites -> itjustfitz.com -> Settings -> Managed robots.txt),
+#     not by adding a louder rule here.
+#
+# The managed block also carries Content-Signal directives and per-bot AI-crawler
+# rules (Amazonbot, ClaudeBot, GPTBot, Google-Extended and others are blocked
+# there). Those are managed by Cloudflare - do not duplicate them here.
 # =============================================================================
 
 User-agent: *
-Disallow: /
+Allow: /
 
-# Admin and client surfaces stay blocked permanently, even after launch.
-# They are behind Supabase auth and an access code, but should never be indexed.
+# Admin and client surfaces are never indexed, launched or not.
+#
+# /admin is additionally gated by Cloudflare Access, and both admin Functions
+# return 403 without a Cf-Access-Jwt-Assertion header. This line is hygiene on
+# top of those, not the control - robots.txt is a request, not a gate.
+Disallow: /admin
 Disallow: /dashboard.html
 Disallow: /portal.html
 Disallow: /assets/archive/
+
+Sitemap: https://itjustfitz.com/sitemap.xml
